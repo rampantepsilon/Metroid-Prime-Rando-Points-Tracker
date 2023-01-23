@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-win": "electron-packager ./ mprpts --overwrite --platform=win32 --arch=x64 --icon=varia.ico --out=build --version-string.CompanyName=RampantEpsilon --version-string.ProductName=\"Metroid Prime Rando Points Tracker\" --asar"
   },
   "author": "Tom \"RampantEpsilon\" Ware",
   "license": "ISC",

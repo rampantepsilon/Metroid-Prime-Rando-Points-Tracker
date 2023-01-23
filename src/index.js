@@ -182,8 +182,16 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData('text');
-    ev.target.appendChild(document.getElementById(data));
-    if (ev.target == 'chozo' || 'magmoor' ||  'phazon' || 'phendrana' || 'tallon'){
+    var id = ev.target.id;
+    var parent = ev.target.parentNode.id;
+    if (id == 'chozo' || id == 'magmoor' || id == 'phazon' || id == 'phendrana' || id == 'tallon' || id == 'starting'){
+        ev.target.appendChild(document.getElementById(data));
+    } else if (parseInt(id)){
+        ev.target.appendChild(document.getElementById(data));
+    } else {
+        document.getElementById(parent).appendChild(document.getElementById(data));
+    }
+    if (id == 'chozo' || id == 'magmoor' || id == 'phazon' || id == 'phendrana' || id == 'tallon'){
         if (data.startsWith('suit') || data.startsWith('artifact')){
             points(ev.target.id, -7);
         }
@@ -192,6 +200,17 @@ function drop(ev) {
         }
         if (data.startsWith('three')){
             points(ev.target.id, -3);
+        }
+    }
+    if (parent == 'chozo' || parent == 'magmoor' ||  parent == 'phazon' || parent == 'phendrana' || parent == 'tallon'){
+        if (data.startsWith('suit') || data.startsWith('artifact')){
+            points(parent, -7);
+        }
+        if (data.startsWith('five')){
+            points(parent, -5);
+        }
+        if (data.startsWith('three')){
+            points(parent, -3);
         }
     }
 }
@@ -228,4 +247,8 @@ function startingItems(){
         } else {
         }
     }
+}
+
+function returnToPosition(){
+
 }
