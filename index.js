@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Menu, dialog} = require('electron')
+const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 const menuTemplate = [
     {
@@ -30,16 +30,16 @@ const menuTemplate = [
     },
     {
         label: 'Version ' + app.getVersion(),
-        click: function(){
+        click: function () {
             const options = {
                 message: "Changelog for v" + app.getVersion(),
                 detail: `
-                - Fixed issue when dragging items on top of others would cause the new item to "disappear" from the tracker. (Technically it was inside the other item.)
-                - Fixed issue where rows would collapse once all items were removed causing you not to be able to return them to the bottom.`,
+                - Fixed issue where Space Jump Boots and Morph Ball weren't tracking properly when calculating points.
+                - Added Multiworld layout with ability to choose which players items are available (Currently only for 2P Multiworlds.)`,
                 type: 'info',
                 buttons: ['Close']
             };
-            dialog.showMessageBox(null, options, (response, checkboxChecked) =>{});
+            dialog.showMessageBox(null, options, (response, checkboxChecked) => { });
         }
     }
 ]
@@ -48,8 +48,8 @@ Menu.setApplicationMenu(menu)
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 840,
-        height: 660,
+        width: 1450,
+        height: 720,
         title: "MPR Points Tracker",
         icon: 'src/images/varia.png'
     })

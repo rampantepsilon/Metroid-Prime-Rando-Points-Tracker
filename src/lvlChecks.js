@@ -274,9 +274,11 @@ var fiveChecks = [
 ];
 var threeChecks = [
     'Boost Ball',
+    'Morph Ball',
     'Morph Ball Bomb',
     'Power Bomb',
     'Power Bomb Expansion',
+    'Space Jump Boots',
     'Spider Ball',
     'Thermal Visor',
     'X-Ray Visor'
