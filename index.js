@@ -1,5 +1,10 @@
 const { app, BrowserWindow, Menu, dialog } = require('electron')
 
+const detailInfo = `
+- Fixed issue where Space Jump Boots and Morph Ball weren't tracking properly when calculating points.
+- Added Multiworld layout with ability to choose which players items are available (Currently only for 2P Multiworlds.)
+- Changed Solo Layout to match Multiworld layout.`
+
 const menuTemplate = [
     {
         label: "File",
@@ -33,9 +38,7 @@ const menuTemplate = [
         click: function () {
             const options = {
                 message: "Changelog for v" + app.getVersion(),
-                detail: `
-                - Fixed issue where Space Jump Boots and Morph Ball weren't tracking properly when calculating points.
-                - Added Multiworld layout with ability to choose which players items are available (Currently only for 2P Multiworlds.)`,
+                detail: detailInfo,
                 type: 'info',
                 buttons: ['Close']
             };

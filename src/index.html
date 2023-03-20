@@ -36,6 +36,7 @@
 
         .items2 {
             height: 50px;
+            text-align: center;
         }
 
         #chozoPT,
@@ -71,267 +72,268 @@
     <table style="width: calc(100% - 130px);" id="main">
         <tr>
             <td colspan="2">
-                <a href="multiworld.html">Change to Multiworld</a>
+                <a href="index.html">Change to Solo</a>
             </td>
             <td>
                 <input type="file" id="file-input" accept=".json" onchange="loadSeed(event)">
             </td>
         </tr>
         <tr class="outline">
-            <td width="125px">Chozo Ruins: </td>
+            <td width="165px">Chozo Ruins: </td>
             <td id="chozoPT" width="30px" align="right"></td>
-            <td id="chozo" style="width:calc(100% - 155px); height:50px" valign="center" ondrop="drop(event)"
+            <td id="chozo" style="width: calc(100% - 195px); height:50px" valign="center" ondrop="drop(event)"
                 ondragover="allowDrop(event)"></td>
         </tr>
         <tr class="outline">
-            <td width="125px">Magmoor Caverns: </td>
+            <td width="165px">Magmoor Caverns: </td>
             <td id="magmoorPT" width="30px" align="right"></td>
-            <td id="magmoor" style="width:calc(100% - 155px); height:50px" valign="center" ondrop="drop(event)"
-                ondragover="allowDrop(event)"></td>
+            <td id="magmoor" style="width: calc(100% - 195px); height:50px" valign="center" ondrop="drop(event)"
+                ondragover="allowDrop(event)">
+            </td>
         </tr>
         <tr class="outline">
-            <td width="125px">Phazon Mines: </td>
+            <td width="165px">Phazon Mines: </td>
             <td id="phazonPT" width="30px" align="right"></td>
-            <td id="phazon" style="width:calc(100% - 155px); height:50px" valign="center" ondrop="drop(event)"
+            <td id="phazon" style="width: calc(100% - 195px); height:50px" valign="center" ondrop="drop(event)"
                 ondragover="allowDrop(event)"></td>
         </tr>
         <tr class="outline">
-            <td width="125px">Phendrana Drifts: </td>
+            <td width="165px">Phendrana Drifts: </td>
             <td id="phendranaPT" width="30px" align="right"></td>
-            <td id="phendrana" style="width:calc(100% - 155px); height:50px" valign="center" ondrop="drop(event)"
+            <td id="phendrana" style="width: calc(100% - 195px); height:50px" valign="center" ondrop="drop(event)"
                 ondragover="allowDrop(event)"></td>
         </tr>
         <tr class="outline">
-            <td width="125px">Tallon Overworld: </td>
+            <td width="165px">Tallon Overworld: </td>
             <td id="tallonPT" width="30px" align="right"></td>
-            <td id="tallon" style="width:calc(100% - 155px); height:50px" valign="center" ondrop="drop(event)"
+            <td id="tallon" style="width: calc(100% - 195px); height:50px" valign="center" ondrop="drop(event)"
                 ondragover="allowDrop(event)"></td>
         </tr>
         <tr class="outline">
-            <td width="125px">Starting Items: </td>
+            <td width="165px">Starting Items: </td>
             <td id='startingPT' width="30px" align="right"></td>
-            <td id="starting" style="width:calc(100% - 155px); height:50px" valign="center" ondrop="drop(event)"
+            <td id="starting" style="width: calc(100% - 195px); height:50px" valign="center" ondrop="drop(event)"
                 ondragover="allowDrop(event)"></td>
         </tr>
+    </table>
+    <table style="width: calc(100% - 130px);" id="main">
         <tr>
-            <td width="150px" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList5" rowspan="4">
-                <table>
-                    <tr style="outline: thin solid;">
-                        <td id='37' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three20"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='38' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three9"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='39' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three10"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                    </tr>
-                    <tr style="outline: thin solid;">
-                        <td id='40' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three11"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='41' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three12"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='42' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three13"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                    </tr>
-                    <tr style="outline: thin solid;">
-                        <td id='43' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three14"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='44' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three15"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='45' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three16"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                    </tr>
-                    <tr style="outline: thin solid;">
-                        <td id='46' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three17"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='47' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three18"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='48' class="items2">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three19"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-            <td height="50px" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList1" colspan='2'
-                valign="center" align="center">
-                <table>
-                    <tr style="outline: thin solid;">
-                        <td id='1' class="items">
-                            <img src="images/space.png" draggable="true" ondragstart="drag(event)" id="three8"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id="2" class="items">
-                            <img src="images/morph.png" draggable="true" ondragstart="drag(event)" id="three3"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id="3" class="items">
-                            <img src="images/bomb.png" draggable="true" ondragstart="drag(event)" id="three1"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id="4" class="items">
-                            <img src="images/boost.png" draggable="true" ondragstart="drag(event)" id="three2"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id="5" class="items">
-                            <img src="images/spider.png" draggable="true" ondragstart="drag(event)" id="three5"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id="6" class="items">
-                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)" id="three4"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id="7" class="items">
-                            <img src="images/thermal.png" draggable="true" ondragstart="drag(event)" id="three6"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id="8" class="items">
-                            <img src="images/xray.png" draggable="true" ondragstart="drag(event)" id="three7"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td height="50px" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList2" colspan='2'
-                valign="center" align="center">
-                <table>
-                    <tr style="outline: thin solid;">
-                        <td id='10' class="items">
-                            <img src="images/charge.png" draggable="true" ondragstart="drag(event)" id="five5"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='11' class="items">
-                            <img src="images/wave.png" draggable="true" ondragstart="drag(event)" id="five2"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='12' class="items">
-                            <img src="images/ice.png" draggable="true" ondragstart="drag(event)" id="five3"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='13' class="items">
-                            <img src="images/plasma.png" draggable="true" ondragstart="drag(event)" id="five4"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='14' class="items">
-                            <img src="images/super.png" draggable="true" ondragstart="drag(event)" id="five6"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='15' class="items">
-                            <img src="images/wavebuster.png" draggable="true" ondragstart="drag(event)" id="five7"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='16' class="items">
-                            <img src="images/icespreader.png" draggable="true" ondragstart="drag(event)" id="five8"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='17' class="items">
-                            <img src="images/flamethrower.png" draggable="true" ondragstart="drag(event)" id="five9"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td height="50px" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList3" colspan='2'
-                valign="center" align="center">
-                <table>
-                    <tr style="outline: thin solid;">
-                        <td id='18' class="items">
-                            <img src="images/grapple.png" draggable="true" ondragstart="drag(event)" id="five1"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='19' class="items">
-                            <img src="images/varia.png" draggable="true" ondragstart="drag(event)" id="suit1"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='20' class="items">
-                            <img src="images/gravity.png" draggable="true" ondragstart="drag(event)" id="suit2"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='21' class="items">
-                            <img src="images/phazon.png" draggable="true" ondragstart="drag(event)" id="suit3"
-                                height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='22' class="items">
-                            <img src="images/art_chozo_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact1" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='23' class="items">
-                            <img src="images/art_elder_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact2" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='24' class="items">
-                            <img src="images/art_lifegiver_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact3" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='25' class="items">
-                            <img src="images/art_nature_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact4" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td height="50px" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList4" colspan='2'
-                valign="center" align="center">
-                <table>
-                    <tr style="outline: thin solid;">
-                        <td id='28' class="items">
-                            <img src="images/art_newborn_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact5" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='29' class="items">
-                            <img src="images/art_spirit_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact6" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='30' class="items">
-                            <img src="images/art_strength_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact7" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='31' class="items">
-                            <img src="images/art_sun_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact8" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='32' class="items">
-                            <img src="images/art_truth_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact9" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='33' class="items">
-                            <img src="images/art_warrior_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact10" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='34' class="items">
-                            <img src="images/art_wild_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact11" height="45px" onmousedown="returnToPosition(event)">
-                        </td>
-                        <td id='35' class="items">
-                            <img src="images/art_world_orange.png" draggable="true" ondragstart="drag(event)"
-                                id="artifact12" height="45px" onmousedown="returnToPosition(event)">
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td width="100%" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList5">
+                            <table width="100%">
+                                <tr style="outline: thin solid;">
+                                    <td id='22' class="items">
+                                        <img src="images/art_chozo_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact1" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='23' class="items">
+                                        <img src="images/art_elder_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact2" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='24' class="items">
+                                        <img src="images/art_lifegiver_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact3" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='25' class="items">
+                                        <img src="images/art_nature_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact4" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='28' class="items">
+                                        <img src="images/art_newborn_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact5" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='29' class="items">
+                                        <img src="images/art_spirit_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact6" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='30' class="items">
+                                        <img src="images/art_strength_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact7" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='31' class="items">
+                                        <img src="images/art_sun_orange.png" draggable="true" ondragstart="drag(event)"
+                                            id="artifact8" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='32' class="items">
+                                        <img src="images/art_truth_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact9" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='33' class="items">
+                                        <img src="images/art_warrior_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact10" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='34' class="items">
+                                        <img src="images/art_wild_orange.png" draggable="true" ondragstart="drag(event)"
+                                            id="artifact11" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='35' class="items">
+                                        <img src="images/art_world_orange.png" draggable="true"
+                                            ondragstart="drag(event)" id="artifact12" height="45px"
+                                            onmousedown="returnToPosition(event)">
+                                    </td>
+                                </tr>
+                                <tr style="outline: thin solid;">
+                                    <td id='10' class="items">
+                                        <img src="images/charge.png" draggable="true" ondragstart="drag(event)"
+                                            id="five5" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='11' class="items">
+                                        <img src="images/wave.png" draggable="true" ondragstart="drag(event)" id="five2"
+                                            height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='12' class="items">
+                                        <img src="images/ice.png" draggable="true" ondragstart="drag(event)" id="five3"
+                                            height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='13' class="items">
+                                        <img src="images/plasma.png" draggable="true" ondragstart="drag(event)"
+                                            id="five4" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='14' class="items">
+                                        <img src="images/super.png" draggable="true" ondragstart="drag(event)"
+                                            id="five6" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='15' class="items">
+                                        <img src="images/wavebuster.png" draggable="true" ondragstart="drag(event)"
+                                            id="five7" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='16' class="items">
+                                        <img src="images/icespreader.png" draggable="true" ondragstart="drag(event)"
+                                            id="five8" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='17' class="items">
+                                        <img src="images/flamethrower.png" draggable="true" ondragstart="drag(event)"
+                                            id="five9" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='18' class="items">
+                                        <img src="images/grapple.png" draggable="true" ondragstart="drag(event)"
+                                            id="five1" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='19' class="items">
+                                        <img src="images/varia.png" draggable="true" ondragstart="drag(event)"
+                                            id="suit1" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='20' class="items">
+                                        <img src="images/gravity.png" draggable="true" ondragstart="drag(event)"
+                                            id="suit2" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='21' class="items">
+                                        <img src="images/phazon.png" draggable="true" ondragstart="drag(event)"
+                                            id="suit3" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                </tr>
+                                <tr style="outline: thin solid;">
+                                    <td id='1' class="items">
+                                        <img src="images/space.png" draggable="true" ondragstart="drag(event)"
+                                            id="three8" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id="2" class="items">
+                                        <img src="images/morph.png" draggable="true" ondragstart="drag(event)"
+                                            id="three3" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id="3" class="items">
+                                        <img src="images/bomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three1" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id="4" class="items">
+                                        <img src="images/boost.png" draggable="true" ondragstart="drag(event)"
+                                            id="three2" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id="5" class="items">
+                                        <img src="images/spider.png" draggable="true" ondragstart="drag(event)"
+                                            id="three5" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id="7" class="items">
+                                        <img src="images/thermal.png" draggable="true" ondragstart="drag(event)"
+                                            id="three6" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id="8" class="items">
+                                        <img src="images/xray.png" draggable="true" ondragstart="drag(event)"
+                                            id="three7" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id="6" class="items">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three4" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='37' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three9" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='38' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three10" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='39' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three11" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='40' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three12" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                </tr>
+                                <tr style="outline: thin solid;">
+                                    <td id='41' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three13" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='42' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three14" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='43' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three15" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='44' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three16" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='45' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three17" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='46' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three18" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='47' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three19" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='48' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three20" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='49' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three21" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='50' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three22" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='51' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three23" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                    <td id='52' class="items2">
+                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                            id="three24" height="45px" onmousedown="returnToPosition(event)">
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 </table>
