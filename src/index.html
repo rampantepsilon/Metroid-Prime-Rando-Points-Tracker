@@ -72,10 +72,20 @@
     <table style="width: calc(100% - 130px);" id="main">
         <tr>
             <td colspan="2">
-                <a href="index.html">Change to Solo</a>
+                <a href="multiworld.html">Change to Multiworld</a>
             </td>
             <td>
-                <input type="file" id="file-input" accept=".json" onchange="loadSeed(event)">
+                <table width="100%">
+                    <tr>
+                        <td style="font-size: 24px;">Current Seed: <span id='seedName'></span></td>
+                        <td width="30%" align="right">
+                            <input type="file" id="file-input" accept=".json" onchange="loadSeed(event)"
+                                style="display: none;">
+                            <input type="button" value="Load Seed"
+                                onclick="document.getElementById('file-input').click();" />
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
         <tr class="outline">

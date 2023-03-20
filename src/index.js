@@ -11,6 +11,9 @@ var loadSeed = function (event) {
     if (!file.value.length) {
         return;
     } else {
+        if (file.value.toString().substring(file.value.length - 5) == '.json') {
+            document.getElementById('seedName').innerHTML = file.value.toString().substring(12, file.value.length - 13);
+        }
         let reader = new FileReader();
         reader.onload = logFile;
         reader.readAsText(file.files[0]);
