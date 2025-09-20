@@ -1,9 +1,9 @@
 const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 const detailInfo = `
-- Fixed issue where Space Jump Boots and Morph Ball weren't tracking properly when calculating points.
-- Added Multiworld layout with ability to choose which players items are available (Currently only for 2P Multiworlds.)
-- Changed Solo Layout to match Multiworld layout.`
+- Fixed issue where points quick calculating.
+- Reconfigured how points were generated.
+- Changed Layout to implement Metroid Prime 2 (Solo)`
 
 const menuTemplate = [
     {

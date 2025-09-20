@@ -21,6 +21,7 @@ var loadSeed = function (event) {
             document.getElementById('seedName').innerHTML = file.value.toString().substring(12, file.value.length - 13);
         }
         let reader = new FileReader();
+        console.log(reader);
         reader.onload = logFile;
         reader.readAsText(file.files[0]);
     }
