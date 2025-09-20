@@ -5,6 +5,12 @@ var phazonPoints = 0;
 var phenPoints = 0;
 var tallonPoints = 0;
 
+var chozoChecks = new Array();
+var magmoorChecks = new Array();
+var phazonChecks = new Array();
+var phendranaChecks = new Array();
+var tallonChecks = new Array();
+
 var loadSeed = function (event) {
     let file = document.getElementById('file-input');
     event.preventDefault();
@@ -28,88 +34,123 @@ function logFile(event) {
     phazonPoints = 0;
     phenPoints = 0;
     tallonPoints = 0;
+
     calcPoints();
 }
 
 function calcPoints() {
     startingItems();
-    for (var i = 0; i < levels.length; i++) {
-        if (i == 0) {
-            for (var j = 0; j < CRchecks.length; j++) {
-                for (var k = 0; k < currentSeed["levelData"][levels[i]]["rooms"][CRchecks[j]]['pickups'].length; k++) {
-                    if (sevenChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][CRchecks[j]]['pickups'][k]['model'])) {
-                        chozoPoints += 7;
-                    }
-                    if (fiveChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][CRchecks[j]]['pickups'][k]['model'])) {
-                        chozoPoints += 5;
-                    }
-                    if (threeChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][CRchecks[j]]['pickups'][k]['model'])) {
-                        chozoPoints += 3;
-                    }
-                }
-            }
-        }
-        if (i == 1) {
-            for (var j = 0; j < MCchecks.length; j++) {
-                for (var k = 0; k < currentSeed["levelData"][levels[i]]["rooms"][MCchecks[j]]['pickups'].length; k++) {
-                    if (sevenChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][MCchecks[j]]['pickups'][k]['model'])) {
-                        magPoints += 7;
-                    }
-                    if (fiveChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][MCchecks[j]]['pickups'][k]['model'])) {
-                        magPoints += 5;
-                    }
-                    if (threeChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][MCchecks[j]]['pickups'][k]['model'])) {
-                        magPoints += 3;
-                    }
-                }
-            }
-        }
-        if (i == 2) {
-            for (var j = 0; j < PMchecks.length; j++) {
-                for (var k = 0; k < currentSeed["levelData"][levels[i]]["rooms"][PMchecks[j]]['pickups'].length; k++) {
-                    if (sevenChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][PMchecks[j]]['pickups'][k]['model'])) {
-                        phazonPoints += 7;
-                    }
-                    if (fiveChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][PMchecks[j]]['pickups'][k]['model'])) {
-                        phazonPoints += 5;
-                    }
-                    if (threeChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][PMchecks[j]]['pickups'][k]['model'])) {
-                        phazonPoints += 3;
-                    }
-                }
-            }
-        }
-        if (i == 3) {
-            for (var j = 0; j < PDchecks.length; j++) {
-                for (var k = 0; k < currentSeed["levelData"][levels[i]]["rooms"][PDchecks[j]]['pickups'].length; k++) {
-                    if (sevenChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][PDchecks[j]]['pickups'][k]['model'])) {
-                        phenPoints += 7;
-                    }
-                    if (fiveChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][PDchecks[j]]['pickups'][k]['model'])) {
-                        phenPoints += 5;
-                    }
-                    if (threeChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][PDchecks[j]]['pickups'][k]['model'])) {
-                        phenPoints += 3;
-                    }
-                }
-            }
-        }
-        if (i == 4) {
-            for (var j = 0; j < TOchecks.length; j++) {
-                for (var k = 0; k < currentSeed["levelData"][levels[i]]["rooms"][TOchecks[j]]['pickups'].length; k++) {
-                    if (sevenChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][TOchecks[j]]['pickups'][k]['model'])) {
-                        tallonPoints += 7;
-                    }
-                    if (fiveChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][TOchecks[j]]['pickups'][k]['model'])) {
-                        tallonPoints += 5;
-                    }
-                    if (threeChecks.includes(currentSeed["levelData"][levels[i]]["rooms"][TOchecks[j]]['pickups'][k]['model'])) {
-                        tallonPoints += 3;
-                    }
-                }
-            }
+
+    //Parse Chozo Ruins
+    var chozoChecksTemp = currentSeed['levelData']['Chozo Ruins']['rooms'];
+    for (i in chozoChecksTemp) {
+        if (chozoChecksTemp[i]['pickups']) {
+            for (j in chozoChecksTemp[i]['pickups'])
+                chozoChecks.push(chozoChecksTemp[i]['pickups'][j]['model']);
         }
     }
+
+    // Assign Points (Chozo Ruins)
+    for (i in chozoChecks) {
+        if (sevenChecks.includes(chozoChecks[i])) {
+            chozoPoints += 7;
+        }
+        if (fiveChecks.includes(chozoChecks[i])) {
+            chozoPoints += 5;
+        }
+        if (threeChecks.includes(chozoChecks[i])) {
+            chozoPoints += 3;
+        }
+    }
+
+    //Parse Magmoor Caverns
+    var magmoorChecksTemp = currentSeed['levelData']['Magmoor Caverns']['rooms'];
+    for (i in magmoorChecksTemp) {
+        if (magmoorChecksTemp[i]['pickups']) {
+            for (j in magmoorChecksTemp[i]['pickups'])
+                magmoorChecks.push(magmoorChecksTemp[i]['pickups'][j]['model']);
+        }
+    }
+
+    // Assign Points (Magmoor Caverns)
+    for (i in magmoorChecks) {
+        if (sevenChecks.includes(magmoorChecks[i])) {
+            magPoints += 7;
+        }
+        if (fiveChecks.includes(magmoorChecks[i])) {
+            magPoints += 5;
+        }
+        if (threeChecks.includes(magmoorChecks[i])) {
+            magPoints += 3;
+        }
+    }
+
+    //Parse Phazon Mines
+    var phazonChecksTemp = currentSeed['levelData']['Phazon Mines']['rooms'];
+    for (i in phazonChecksTemp) {
+        if (phazonChecksTemp[i]['pickups']) {
+            for (j in phazonChecksTemp[i]['pickups'])
+                phazonChecks.push(phazonChecksTemp[i]['pickups'][j]['model']);
+        }
+    }
+
+    // Assign Points (Phazon Mines)
+    for (i in phazonChecks) {
+        if (sevenChecks.includes(phazonChecks[i])) {
+            phazonPoints += 7;
+        }
+        if (fiveChecks.includes(phazonChecks[i])) {
+            phazonPoints += 5;
+        }
+        if (threeChecks.includes(phazonChecks[i])) {
+            phazonPoints += 3;
+        }
+    }
+
+    //Parse Phendrana Drifts
+    var phendranaChecksTemp = currentSeed['levelData']['Phendrana Drifts']['rooms'];
+    for (i in phendranaChecksTemp) {
+        if (phendranaChecksTemp[i]['pickups']) {
+            for (j in phendranaChecksTemp[i]['pickups'])
+                phendranaChecks.push(phendranaChecksTemp[i]['pickups'][j]['model']);
+        }
+    }
+
+    // Assign Points (Phendrana Drifts)
+    for (i in phendranaChecks) {
+        if (sevenChecks.includes(phendranaChecks[i])) {
+            phenPoints += 7;
+        }
+        if (fiveChecks.includes(phendranaChecks[i])) {
+            phenPoints += 5;
+        }
+        if (threeChecks.includes(phendranaChecks[i])) {
+            phenPoints += 3;
+        }
+    }
+
+    //Parse Tallon Overworld
+    var tallonChecksTemp = currentSeed['levelData']['Tallon Overworld']['rooms'];
+    for (i in tallonChecksTemp) {
+        if (tallonChecksTemp[i]['pickups']) {
+            for (j in tallonChecksTemp[i]['pickups'])
+                tallonChecks.push(tallonChecksTemp[i]['pickups'][j]['model']);
+        }
+    }
+
+    // Assign Points (Phendrana Drifts)
+    for (i in tallonChecks) {
+        if (sevenChecks.includes(tallonChecks[i])) {
+            tallonPoints += 7;
+        }
+        if (fiveChecks.includes(tallonChecks[i])) {
+            tallonPoints += 5;
+        }
+        if (threeChecks.includes(tallonChecks[i])) {
+            tallonPoints += 3;
+        }
+    }
+
     displayPoints();
 }
 

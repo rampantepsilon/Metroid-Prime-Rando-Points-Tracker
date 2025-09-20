@@ -1,4 +1,4 @@
-var levels = ['Chozo Ruins', 'Magmoor Caverns', 'Phazon Mines', 'Phendrana Drifts', 'Tallon Overworld'];
+var levels = ['Phendrana Drifts', 'Magmoor Caverns', 'Phazon Mines', 'Tallon Overworld', 'Chozo Ruins'];
 var CRchecks = [
     'Antechamber',
     'Arboretum',
