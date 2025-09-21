@@ -21,14 +21,14 @@ var loadSeed = function (event) {
             document.getElementById('seedName').innerHTML = file.value.toString().substring(12, file.value.length - 13);
         }
         let reader = new FileReader();
-        console.log(reader);
         reader.onload = logFile;
         reader.readAsText(file.files[0]);
     }
 };
 
 function logFile(event) {
-    let str = event.target.result;
+    let str = event.target['result'].replace(/[\s\r\n]+/g, "");
+    console.log(str);
     currentSeed = JSON.parse(str);
     chozoPoints = 0;
     magPoints = 0;

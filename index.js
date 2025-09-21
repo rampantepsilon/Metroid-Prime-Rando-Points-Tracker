@@ -1,9 +1,13 @@
 const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 const detailInfo = `
+- HOTFIX: Fixed bug where Power Beam wasn't showing as a starting item.
+- Added Prime 2 and 3 to the launcher menu.
+- Found way to convert .rdvgame files to a usable format for Prime 2 (and possibly 3).
+- Updated backend of Prime 2 to start reading the file.
 - Fixed issue where points quick calculating.
 - Reconfigured how points were generated.
-- Changed Layout to implement Metroid Prime 2 (Solo)`
+- Changed Layout to implement Metroid Prime 2.`
 
 const menuTemplate = [
     {
