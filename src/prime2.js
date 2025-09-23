@@ -1,15 +1,19 @@
 var currentSeed;
-var chozoPoints = 0;
-var magPoints = 0;
-var phazonPoints = 0;
-var phenPoints = 0;
-var tallonPoints = 0;
+var templePoints = 0;
+var greatTemplePoints = 0;
+var argonPoints = 0;
+var torvusPoints = 0;
+var sanctuaryPoints = 0;
+var skyTemplePoints = 0;
+var dArgonPoints = 0;
+var dTorvusPoints = 0;
+var ingPoints = 0;
 
-var chozoChecks = new Array();
-var magmoorChecks = new Array();
-var phazonChecks = new Array();
-var phendranaChecks = new Array();
-var tallonChecks = new Array();
+var templeChecks = new Array();
+var greatTempleChecks = new Array();
+var argonChecks = new Array();
+var torvusChecks = new Array();
+var sanctuaryChecks = new Array();
 
 var loadSeed = function (event) {
     let file = document.getElementById('file-input');
@@ -27,31 +31,36 @@ var loadSeed = function (event) {
 };
 
 function logFile(event) {
-    let str = event.target['result'].replace(/[\s\r\n]+/g, "");
-    console.log(str);
+    let str = event.target['result'].replace(/[\r\n]+/g, "");
     currentSeed = JSON.parse(str);
-    chozoPoints = 0;
-    magPoints = 0;
-    phazonPoints = 0;
-    phenPoints = 0;
-    tallonPoints = 0;
+    templePoints = 0;
+    greatTemplePoints = 0;
+    argonPoints = 0;
+    torvusPoints = 0;
+    sanctuaryPoints = 0;
+    skyTemplePoints = 0;
+    dArgonPoints = 0;
+    dTorvusPoints = 0;
+    ingPoints = 0;
 
     calcPoints();
 }
 
 function calcPoints() {
+    console.log(currentSeed);
+    /*Come back to this
     startingItems();
+    */
 
-    //Parse Chozo Ruins
-    var chozoChecksTemp = currentSeed['levelData']['Chozo Ruins']['rooms'];
-    for (i in chozoChecksTemp) {
-        if (chozoChecksTemp[i]['pickups']) {
-            for (j in chozoChecksTemp[i]['pickups'])
-                chozoChecks.push(chozoChecksTemp[i]['pickups'][j]['model']);
-        }
+    //Parse Temple Grounds
+    var templeChecksTemp = currentSeed['game_modifications'][0]["locations"]["Temple Grounds"];
+    for (i in templeChecksTemp) {
+        templeChecks.push(templeChecksTemp[i]);
     }
+    console.log(templeChecksTemp);
+    console.log(templeChecks);
 
-    // Assign Points (Chozo Ruins)
+    /*// Assign Points (Chozo Ruins)
     for (i in chozoChecks) {
         if (sevenChecks.includes(chozoChecks[i])) {
             chozoPoints += 7;
@@ -62,148 +71,88 @@ function calcPoints() {
         if (threeChecks.includes(chozoChecks[i])) {
             chozoPoints += 3;
         }
-    }
-
-    //Parse Magmoor Caverns
-    var magmoorChecksTemp = currentSeed['levelData']['Magmoor Caverns']['rooms'];
-    for (i in magmoorChecksTemp) {
-        if (magmoorChecksTemp[i]['pickups']) {
-            for (j in magmoorChecksTemp[i]['pickups'])
-                magmoorChecks.push(magmoorChecksTemp[i]['pickups'][j]['model']);
-        }
-    }
-
-    // Assign Points (Magmoor Caverns)
-    for (i in magmoorChecks) {
-        if (sevenChecks.includes(magmoorChecks[i])) {
-            magPoints += 7;
-        }
-        if (fiveChecks.includes(magmoorChecks[i])) {
-            magPoints += 5;
-        }
-        if (threeChecks.includes(magmoorChecks[i])) {
-            magPoints += 3;
-        }
-    }
-
-    //Parse Phazon Mines
-    var phazonChecksTemp = currentSeed['levelData']['Phazon Mines']['rooms'];
-    for (i in phazonChecksTemp) {
-        if (phazonChecksTemp[i]['pickups']) {
-            for (j in phazonChecksTemp[i]['pickups'])
-                phazonChecks.push(phazonChecksTemp[i]['pickups'][j]['model']);
-        }
-    }
-
-    // Assign Points (Phazon Mines)
-    for (i in phazonChecks) {
-        if (sevenChecks.includes(phazonChecks[i])) {
-            phazonPoints += 7;
-        }
-        if (fiveChecks.includes(phazonChecks[i])) {
-            phazonPoints += 5;
-        }
-        if (threeChecks.includes(phazonChecks[i])) {
-            phazonPoints += 3;
-        }
-    }
-
-    //Parse Phendrana Drifts
-    var phendranaChecksTemp = currentSeed['levelData']['Phendrana Drifts']['rooms'];
-    for (i in phendranaChecksTemp) {
-        if (phendranaChecksTemp[i]['pickups']) {
-            for (j in phendranaChecksTemp[i]['pickups'])
-                phendranaChecks.push(phendranaChecksTemp[i]['pickups'][j]['model']);
-        }
-    }
-
-    // Assign Points (Phendrana Drifts)
-    for (i in phendranaChecks) {
-        if (sevenChecks.includes(phendranaChecks[i])) {
-            phenPoints += 7;
-        }
-        if (fiveChecks.includes(phendranaChecks[i])) {
-            phenPoints += 5;
-        }
-        if (threeChecks.includes(phendranaChecks[i])) {
-            phenPoints += 3;
-        }
-    }
-
-    //Parse Tallon Overworld
-    var tallonChecksTemp = currentSeed['levelData']['Tallon Overworld']['rooms'];
-    for (i in tallonChecksTemp) {
-        if (tallonChecksTemp[i]['pickups']) {
-            for (j in tallonChecksTemp[i]['pickups'])
-                tallonChecks.push(tallonChecksTemp[i]['pickups'][j]['model']);
-        }
-    }
-
-    // Assign Points (Phendrana Drifts)
-    for (i in tallonChecks) {
-        if (sevenChecks.includes(tallonChecks[i])) {
-            tallonPoints += 7;
-        }
-        if (fiveChecks.includes(tallonChecks[i])) {
-            tallonPoints += 5;
-        }
-        if (threeChecks.includes(tallonChecks[i])) {
-            tallonPoints += 3;
-        }
-    }
+    }*/
 
     displayPoints();
 }
 
 function points(location, amount) {
-    if (location == 'chozo') {
-        chozoPoints += amount;
+    if (location == 'temple') {
+        templePoints += amount;
     }
-    if (location == 'magmoor') {
-        magPoints += amount;
+    if (location == 'greatTemple') {
+        greatTemplePoints += amount;
     }
-    if (location == 'phazon') {
-        phazonPoints += amount;
+    if (location == 'argon') {
+        argonPoints += amount;
     }
-    if (location == 'phendrana') {
-        phenPoints += amount;
+    if (location == 'torvus') {
+        torvusPoints += amount;
     }
-    if (location == 'tallon') {
-        tallonPoints += amount;
+    if (location == 'sanctuary') {
+        sanctuaryPoints += amount;
+    }
+    if (location == 'skyTemple') {
+        skyTemplePoints += amount;
+    }
+    if (location == 'dArgon') {
+        dArgonPoints += amount;
+    }
+    if (location == 'dTorvus') {
+        dTorvusPoints += amount;
+    }
+    if (location == 'ing') {
+        ingPoints += amount;
     }
     displayPoints();
 }
 
 function displayPoints() {
-    if (chozoPoints == 0) {
-        document.getElementById('chozoPT').innerHTML = '<span style="color:red">' + chozoPoints + '</span>';
+    if (templePoints == 0) {
+        document.getElementById('templePT').innerHTML = '<span style="color:red">' + templePoints + '</span>';
     } else {
-        document.getElementById('chozoPT').innerHTML = chozoPoints;
+        document.getElementById('templePT').innerHTML = templePoints;
     }
-    if (magPoints == 0) {
-        document.getElementById('magmoorPT').innerHTML = '<span style="color:red">' + magPoints + '</span>';
+    if (greatTemplePoints == 0) {
+        document.getElementById('greatTemplePT').innerHTML = '<span style="color:red">' + greatTemplePoints + '</span>';
     } else {
-        document.getElementById('magmoorPT').innerHTML = magPoints;
+        document.getElementById('greatTemplePT').innerHTML = greatTemplePoints;
     }
-    if (phazonPoints == 0) {
-        document.getElementById('phazonPT').innerHTML = '<span style="color:red">' + phazonPoints + '</span>';
+    if (argonPoints == 0) {
+        document.getElementById('argonPT').innerHTML = '<span style="color:red">' + argonPoints + '</span>';
     } else {
-        document.getElementById('phazonPT').innerHTML = phazonPoints;
+        document.getElementById('argonPT').innerHTML = argonPoints;
     }
-    if (phenPoints == 0) {
-        document.getElementById('phendranaPT').innerHTML = '<span style="color:red">' + phenPoints + '</span>';
+    if (torvusPoints == 0) {
+        document.getElementById('torvusPT').innerHTML = '<span style="color:red">' + torvusPoints + '</span>';
     } else {
-        document.getElementById('phendranaPT').innerHTML = phenPoints;
+        document.getElementById('torvusPT').innerHTML = torvusPoints;
     }
-    if (tallonPoints == 0) {
-        document.getElementById('tallonPT').innerHTML = '<span style="color:red">' + tallonPoints + '</span>';
+    if (sanctuaryPoints == 0) {
+        document.getElementById('sanctuaryPT').innerHTML = '<span style="color:red">' + sanctuaryPoints + '</span>';
     } else {
-        document.getElementById('tallonPT').innerHTML = tallonPoints;
+        document.getElementById('sanctuaryPT').innerHTML = sanctuaryPoints;
     }
-    /*document.getElementById('magmoorPT').innerHTML = magPoints;
-    document.getElementById('phazonPT').innerHTML = phazonPoints;
-    document.getElementById('phendranaPT').innerHTML = phenPoints;
-    document.getElementById('tallonPT').innerHTML = tallonPoints;*/
+    if (skyTemplePoints == 0) {
+        document.getElementById('skyTemplePT').innerHTML = '<span style="color:red">' + skyTemplePoints + '</span>';
+    } else {
+        document.getElementById('skyTemplePT').innerHTML = skyTemplePoints;
+    }
+    if (dArgonPoints == 0) {
+        document.getElementById('dArgonPT').innerHTML = '<span style="color:red">' + dArgonPoints + '</span>';
+    } else {
+        document.getElementById('dArgonPT').innerHTML = dArgonPoints;
+    }
+    if (dTorvusPoints == 0) {
+        document.getElementById('dTorvusPT').innerHTML = '<span style="color:red">' + dTorvusPoints + '</span>';
+    } else {
+        document.getElementById('dTorvusPT').innerHTML = dTorvusPoints;
+    }
+    if (ingPoints == 0) {
+        document.getElementById('ingPT').innerHTML = '<span style="color:red">' + ingPoints + '</span>';
+    } else {
+        document.getElementById('ingPT').innerHTML = ingPoints;
+    }
 }
 
 function allowDrop(ev) {
