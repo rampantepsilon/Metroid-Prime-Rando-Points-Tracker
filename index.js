@@ -1,13 +1,11 @@
 const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 const detailInfo = `
-- HOTFIX: Fixed bug where Power Beam wasn't showing as a starting item.
-- Added Prime 2 and 3 to the launcher menu.
-- Found way to convert .rdvgame files to a usable format for Prime 2 (and possibly 3).
-- Updated backend of Prime 2 to start reading the file.
-- Fixed issue where points quick calculating.
-- Reconfigured how points were generated.
-- Changed Layout to implement Metroid Prime 2.`
+- Updated background for Prime 1 with new colors. (Should be easier to see icons now)
+- Changed the output for Current Seed to make it easier to identify.
+- Resized the main window to elimiate unneeded spacing.
+- Added Toggles for Background and Point Values.
+- Updated Electron to current version.`
 
 const menuTemplate = [
     {
@@ -55,8 +53,8 @@ Menu.setApplicationMenu(menu)
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 1450,
-        height: 720,
+        width: 870,
+        height: 760,
         title: "MPR Points Tracker",
         icon: 'src/images/varia.png'
     })

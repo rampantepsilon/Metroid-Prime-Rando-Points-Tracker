@@ -17,9 +17,9 @@ var loadSeed = function (event) {
     if (!file.value.length) {
         return;
     } else {
-        if (file.value.toString().substring(file.value.length - 5) == '.json') {
+        /*if (file.value.toString().substring(file.value.length - 5) == '.json') {
             document.getElementById('seedName').innerHTML = file.value.toString().substring(12, file.value.length - 13);
-        }
+        }*/
         let reader = new FileReader();
         reader.onload = logFile;
         reader.readAsText(file.files[0]);
@@ -29,6 +29,16 @@ var loadSeed = function (event) {
 function logFile(event) {
     let str = event.target.result;
     currentSeed = JSON.parse(str);
+
+    //Get Index of Seed Name Start
+    var seedNameIndex = currentSeed['gameConfig']['mainMenuMessage'].indexOf("\n");
+    if (currentSeed['outputIso'].includes("Prime Randomizer")) {
+        document.getElementById('randovania').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring(0, seedNameIndex) + " (Prime)";
+    } else {
+        document.getElementById('randovania').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring(0, seedNameIndex) + " (Unknown)";
+    }
+    document.getElementById('seedName').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring((seedNameIndex + 1));
+
     chozoPoints = 0;
     magPoints = 0;
     phazonPoints = 0;
@@ -209,27 +219,27 @@ function points(location, amount) {
 
 function displayPoints() {
     if (chozoPoints == 0) {
-        document.getElementById('chozoPT').innerHTML = '<span style="color:red">' + chozoPoints + '</span>';
+        document.getElementById('chozoPT').innerHTML = '<span class="zero">' + chozoPoints + '</span>';
     } else {
         document.getElementById('chozoPT').innerHTML = chozoPoints;
     }
     if (magPoints == 0) {
-        document.getElementById('magmoorPT').innerHTML = '<span style="color:red">' + magPoints + '</span>';
+        document.getElementById('magmoorPT').innerHTML = '<span class="zero">' + magPoints + '</span>';
     } else {
         document.getElementById('magmoorPT').innerHTML = magPoints;
     }
     if (phazonPoints == 0) {
-        document.getElementById('phazonPT').innerHTML = '<span style="color:red">' + phazonPoints + '</span>';
+        document.getElementById('phazonPT').innerHTML = '<span class="zero">' + phazonPoints + '</span>';
     } else {
         document.getElementById('phazonPT').innerHTML = phazonPoints;
     }
     if (phenPoints == 0) {
-        document.getElementById('phendranaPT').innerHTML = '<span style="color:red">' + phenPoints + '</span>';
+        document.getElementById('phendranaPT').innerHTML = '<span class="zero">' + phenPoints + '</span>';
     } else {
         document.getElementById('phendranaPT').innerHTML = phenPoints;
     }
     if (tallonPoints == 0) {
-        document.getElementById('tallonPT').innerHTML = '<span style="color:red">' + tallonPoints + '</span>';
+        document.getElementById('tallonPT').innerHTML = '<span class="zero">' + tallonPoints + '</span>';
     } else {
         document.getElementById('tallonPT').innerHTML = tallonPoints;
     }
@@ -367,4 +377,35 @@ function returnToPosition(ev) {
 
     //Remove Element
     document.getElementById(clickedElementId).remove();
+}
+
+function pointToggle() {
+    var pointPanel = document.getElementById('info');
+
+    if (pointPanel.checkVisibility()) {
+        pointPanel.style.display = 'none';
+        document.getElementById('locations').classList.add('pointHidden')
+        document.getElementById('locations').classList.remove('pointShown')
+        document.getElementById('items').classList.add('pointHidden')
+        document.getElementById('items').classList.remove('pointShown')
+    } else {
+        pointPanel.style.display = '';
+        document.getElementById('locations').classList.remove('pointHidden')
+        document.getElementById('locations').classList.add('pointShown')
+        document.getElementById('items').classList.remove('pointHidden')
+        document.getElementById('items').classList.add('pointShown')
+    }
+}
+
+var backgroundOn = true;
+function background() {
+    if (backgroundOn == false) {
+        document.getElementById('background').classList.add('background')
+        document.getElementById('background').classList.remove('nobackground')
+        backgroundOn = true;
+    } else {
+        document.getElementById('background').classList.remove('background')
+        document.getElementById('background').classList.add('nobackground')
+        backgroundOn = false;
+    }
 }

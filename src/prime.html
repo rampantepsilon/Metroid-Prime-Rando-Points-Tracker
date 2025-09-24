@@ -11,16 +11,34 @@
         }
 
         body {
+            font-family: 'Prime';
+            font-size: 24px;
+            color: white;
+        }
+
+        .background {
             background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/29117383-1e5f-4c10-9c6d-cacc560350a8/d37s491-ab0886e0-b29a-40b2-9a2a-ea7cc4e64a84.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-            font-family: 'Prime';
-            font-size: 24px;
+            background-position: center;
         }
 
-        #main {
-            background-color: rgba(255, 255, 255, 0.75);
+        .nobackground {
+            background-color: black;
+        }
+
+        a,
+        a:visited {
+            color: white;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .main {
+            background-color: rgba(0, 0, 0, 0.75);
             font-size: 24px;
         }
 
@@ -45,11 +63,11 @@
         #phendranaPT,
         #tallonPT,
         #startingPT {
-            border-right: 2px solid black;
+            border-right: 2px solid white;
         }
 
         #info {
-            background-color: rgba(255, 255, 255, 0.75);
+            background-color: rgba(76, 76, 76, 0.75);
             position: absolute;
             top: 0;
             right: 7.5;
@@ -58,18 +76,30 @@
         }
 
         #footer {
-            background-color: rgba(255, 255, 255, 0.75);
+            background-color: rgba(76, 76, 76, 0.75);
             position: fixed;
             bottom: 0;
             left: 7.5;
             width: calc(100% - 15px);
             z-index: 1;
         }
+
+        .zero {
+            color: rgb(255, 84, 84);
+        }
+
+        .pointShown {
+            width: calc(100% - 130px);
+        }
+
+        .pointHidden {
+            width: calc(100%);
+        }
     </style>
 </head>
 
-<body onload="displayPoints()">
-    <table style="width: calc(100% - 130px);" id="main">
+<body onload="displayPoints()" class="background" id="background">
+    <table id="locations" class="main pointShown">
         <tr>
             <td colspan="2">
                 <a href="index.html">Back To Selection</a>
@@ -77,13 +107,29 @@
             <td>
                 <table width="100%">
                     <tr>
-                        <td style="font-size: 24px;">Current Seed: <span id='seedName'></span></td>
+                        <td style="font-size: 24px;">Current Seed: <span id="randovania"></span><br><span
+                                id='seedName'>&nbsp;</span></td>
                         <td width="30%" align="right">
                             <input type="file" id="file-input" accept=".json" onchange="loadSeed(event)"
                                 style="display: none;">
                             <input type="button" value="Load Seed"
                                 onclick="document.getElementById('file-input').click();" />
                         </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table style="font-size: 24px; width: 100%;">
+                    <tr>
+                        <td align="center">Calculate 1 Point Checks? <input type="radio" name='1pt' value='yes'> Yes
+                            <input type="radio" name='1pt' value='no' checked> No
+                        </td>
+                        <td align="right"><input type="button" value="Show/Hide Background" onclick="background();" />
+                        </td>
+                        <td align="right"><input type="button" value="Show/Hide Point Values"
+                                onclick="pointToggle();" /></td>
                     </tr>
                 </table>
             </td>
@@ -126,13 +172,7 @@
                 ondragover="allowDrop(event)"></td>
         </tr>
     </table>
-    <table style="width: calc(100% - 130px);" id="main">
-        <tr>
-            <td align="center">Calculate 1 Point Checks? <input type="radio" name='1pt' value='yes'> Yes <input
-                    type="radio" name='1pt' value='no' checked> No</td>
-        </tr>
-    </table>
-    <table style="width: calc(100% - 130px);" id="main">
+    <table id="items" class="main pointShown">
         <tr>
             <td>
                 <table width="100%">
