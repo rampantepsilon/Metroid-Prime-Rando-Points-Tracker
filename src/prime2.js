@@ -57,25 +57,49 @@ function calcPoints() {
     */
 
     //Parse Temple Grounds
-    var templeChecksTemp = currentSeed['game_modifications'][0]["locations"]["Temple Grounds"];
-    for (i in templeChecksTemp) {
-        templeChecks.push(templeChecksTemp[i]);
+    templeChecks = currentSeed['game_modifications'][0]["locations"]["Temple Grounds"];
+    for (i in templeChecks) {
+        if (sevenChecks.includes(templeChecks[i])) {
+            templePoints += 7
+        }
+        if (fiveChecks.includes(templeChecks[i])) {
+            templePoints += 5
+        }
+        if (threeChecks.includes(templeChecks[i])) {
+            templePoints += 3
+        }
+        //console.log(templeChecks[i], templePoints); //Keep for debugging
     }
-    console.log(templeChecksTemp);
-    console.log(templeChecks);
 
-    /*// Assign Points (Chozo Ruins)
-    for (i in chozoChecks) {
-        if (sevenChecks.includes(chozoChecks[i])) {
-            chozoPoints += 7;
+    //Parse Great Temple Grounds
+    greatTempleChecks = currentSeed['game_modifications'][0]["locations"]["Great Temple"];
+    for (i in greatTempleChecks) {
+        if (sevenChecks.includes(greatTempleChecks[i])) {
+            greatTemplePoints += 7
         }
-        if (fiveChecks.includes(chozoChecks[i])) {
-            chozoPoints += 5;
+        if (fiveChecks.includes(greatTempleChecks[i])) {
+            greatTemplePoints += 5
         }
-        if (threeChecks.includes(chozoChecks[i])) {
-            chozoPoints += 3;
+        if (threeChecks.includes(greatTempleChecks[i])) {
+            greatTemplePoints += 3
         }
-    }*/
+        //console.log(greatTempleChecks[i], greatTemplePoints); //Keep for debugging
+    }
+
+    //Parse Agon Wastes
+    argonChecks = currentSeed['game_modifications'][0]["locations"]["Agon Wastes"];
+    for (i in argonChecks) {
+        if (sevenChecks.includes(argonChecks[i])) {
+            argonPoints += 7
+        }
+        if (fiveChecks.includes(argonChecks[i])) {
+            argonPoints += 5
+        }
+        if (threeChecks.includes(argonChecks[i])) {
+            argonPoints += 3
+        }
+        console.log(argonChecks[i], argonPoints); //Keep for debugging
+    }
 
     displayPoints();
 }
@@ -165,8 +189,8 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData('text', ev.target.id);
     var data = ev.target.id;
-    if (ev.target.parentNode.id == 'chozo' || 'magmoor' || 'phazon' || 'phendrana' || 'tallon') {
-        if (data.startsWith('suit') || data.startsWith('artifact')) {
+    if (ev.target.parentNode.id == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
+        if (data.startsWith('seven')) {
             points(ev.target.parentNode.id, 7);
         }
         if (data.startsWith('five')) {
@@ -177,37 +201,49 @@ function drag(ev) {
         }
     }
 }
+
+//Variable Tracker for dropping items (Setting ID high enough to not cause issues)
+var dropVarId = 9000000;
+
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData('text');
     var id = ev.target.id;
     var parent = ev.target.parentNode.id;
-    if (id == 'chozo' || id == 'magmoor' || id == 'phazon' || id == 'phendrana' || id == 'tallon' || id == 'starting') {
-        ev.target.appendChild(document.getElementById(data));
+
+    //Manipulate Clone Data
+    var nodeCopy = document.getElementById(data).cloneNode(true);
+    nodeCopy.id = dropVarId;
+    nodeCopy.setAttribute('onmousedown', 'returnToPosition(event)')
+    dropVarId += 1;
+    var ptValue = nodeCopy.getAttribute('points'); //Get points Attribute to Calculate
+
+    if (id == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing' || id == 'starting') {
+        ev.target.appendChild(nodeCopy);
     } else if (parseInt(id)) {
-        ev.target.appendChild(document.getElementById(data));
+        //ev.target.appendChild(document.getElementById(data));
     } else {
-        document.getElementById(parent).appendChild(document.getElementById(data));
+        document.getElementById(parent).appendChild(nodeCopy);
     }
-    if (id == 'chozo' || id == 'magmoor' || id == 'phazon' || id == 'phendrana' || id == 'tallon') {
-        if (data.startsWith('suit') || data.startsWith('artifact')) {
+    if (id == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
+        if (ptValue.startsWith('seven')) {
             points(ev.target.id, -7);
         }
-        if (data.startsWith('five')) {
+        if (ptValue.startsWith('five')) {
             points(ev.target.id, -5);
         }
-        if (data.startsWith('three')) {
+        if (ptValue.startsWith('three')) {
             points(ev.target.id, -3);
         }
     }
-    if (parent == 'chozo' || parent == 'magmoor' || parent == 'phazon' || parent == 'phendrana' || parent == 'tallon') {
-        if (data.startsWith('suit') || data.startsWith('artifact')) {
+    if (parent == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
+        if (ptValue.startsWith('seven')) {
             points(parent, -7);
         }
-        if (data.startsWith('five')) {
+        if (ptValue.startsWith('five')) {
             points(parent, -5);
         }
-        if (data.startsWith('three')) {
+        if (ptValue.startsWith('three')) {
             points(parent, -3);
         }
     }
@@ -247,6 +283,27 @@ function startingItems() {
     }
 }
 
-function returnToPosition() {
+function returnToPosition(ev) {
+    //Get current click
+    const clickedElementId = ev.target.id;
 
+    //Get data for points
+    var data = document.getElementById(clickedElementId).getAttribute('points');
+
+    //Adjust Points
+    var parent = ev.target.parentNode.id;
+    if (parent == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
+        if (data.startsWith('seven')) {
+            points(parent, 7);
+        }
+        if (data.startsWith('five')) {
+            points(parent, 5);
+        }
+        if (data.startsWith('three')) {
+            points(parent, 3);
+        }
+    }
+
+    //Remove Element
+    document.getElementById(clickedElementId).remove();
 }
