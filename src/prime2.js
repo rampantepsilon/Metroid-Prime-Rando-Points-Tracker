@@ -14,6 +14,10 @@ var greatTempleChecks = new Array();
 var argonChecks = new Array();
 var torvusChecks = new Array();
 var sanctuaryChecks = new Array();
+var skyTempleChecks = new Array();
+var dargonChecks = new Array();
+var dtorvusChecks = new Array();
+var ingChecks = new Array();
 
 var loadSeed = function (event) {
     let file = document.getElementById('file-input');
