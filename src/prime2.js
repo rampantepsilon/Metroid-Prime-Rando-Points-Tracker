@@ -25,9 +25,9 @@ var loadSeed = function (event) {
     if (!file.value.length) {
         return;
     } else {
-        if (file.value.toString().substring(file.value.length - 5) == '.json') {
+        /*if (file.value.toString().substring(file.value.length - 5) == '.rdvgame') {
             document.getElementById('seedName').innerHTML = file.value.toString().substring(12, file.value.length - 13);
-        }
+        }*/ //Changed to later in script (might come back to this)
         let reader = new FileReader();
         reader.onload = logFile;
         reader.readAsText(file.files[0]);
@@ -47,17 +47,53 @@ function logFile(event) {
     dTorvusPoints = 0;
     ingPoints = 0;
 
+    //Set seedName
+    if (currentSeed['info']['randovania_version']) {
+        document.getElementById('seedName').innerHTML = 'Randovania ' + currentSeed['info']['randovania_version'] + " [Prime 2]<br>" + currentSeed['info']['word_hash']
+    } else {
+        document.getElementById('seedName').innerHTML = 'Randovania (Unknown) [Prime 2]<br>' + currentSeed['info']['word_hash']
+    }
+
     calcPoints();
 }
 
 function calcPoints() {
-    console.log(currentSeed);
-    /*Come back to this
     startingItems();
-    */
 
-    //Parse Temple Grounds
-    templeChecks = currentSeed['game_modifications'][0]["locations"]["Temple Grounds"];
+    //Parse Check Information 10.1.0 and newer
+    var tempChecks = currentSeed['game_modifications'][0]['locations']
+
+    for (i in tempChecks) {
+        if (tempChecks[i]['node_identifier']['region'] == 'Temple Grounds') {
+            templeChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Great Temple') {
+            greatTempleChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Agon Wastes') {
+            argonChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Torvus Bog') {
+            torvusChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Sanctuary Fortress') {
+            sanctuaryChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Sky Temple Grounds') {
+            skyTempleChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Dark Agon Wastes') {
+            dargonChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Dark Torvus Bog') {
+            dtorvusChecks.push(tempChecks[i]['pickup'])
+        }
+        if (tempChecks[i]['node_identifier']['region'] == 'Ing Hive') {
+            ingChecks.push(tempChecks[i]['pickup'])
+        }
+    }
+
+    //Assign Points Temple Grounds
     for (i in templeChecks) {
         if (sevenChecks.includes(templeChecks[i])) {
             templePoints += 7
@@ -71,8 +107,7 @@ function calcPoints() {
         //console.log(templeChecks[i], templePoints); //Keep for debugging
     }
 
-    //Parse Great Temple Grounds
-    greatTempleChecks = currentSeed['game_modifications'][0]["locations"]["Great Temple"];
+    //Assign Points Great Temple Grounds
     for (i in greatTempleChecks) {
         if (sevenChecks.includes(greatTempleChecks[i])) {
             greatTemplePoints += 7
@@ -86,8 +121,7 @@ function calcPoints() {
         //console.log(greatTempleChecks[i], greatTemplePoints); //Keep for debugging
     }
 
-    //Parse Agon Wastes
-    argonChecks = currentSeed['game_modifications'][0]["locations"]["Agon Wastes"];
+    //Assign Points Agon Wastes
     for (i in argonChecks) {
         if (sevenChecks.includes(argonChecks[i])) {
             argonPoints += 7
@@ -98,7 +132,91 @@ function calcPoints() {
         if (threeChecks.includes(argonChecks[i])) {
             argonPoints += 3
         }
-        console.log(argonChecks[i], argonPoints); //Keep for debugging
+        //console.log(argonChecks[i], argonPoints); //Keep for debugging
+    }
+
+    //Assign Points Torvus Bog
+    for (i in torvusChecks) {
+        if (sevenChecks.includes(torvusChecks[i])) {
+            torvusPoints += 7
+        }
+        if (fiveChecks.includes(torvusChecks[i])) {
+            torvusPoints += 5
+        }
+        if (threeChecks.includes(torvusChecks[i])) {
+            torvusPoints += 3
+        }
+        //console.log(torvusChecks[i], torvusPoints); //Keep for debugging
+    }
+
+    //Assign Points Sanctuary Fortress
+    for (i in sanctuaryChecks) {
+        if (sevenChecks.includes(sanctuaryChecks[i])) {
+            sanctuaryPoints += 7
+        }
+        if (fiveChecks.includes(sanctuaryChecks[i])) {
+            sanctuaryPoints += 5
+        }
+        if (threeChecks.includes(sanctuaryChecks[i])) {
+            sanctuaryPoints += 3
+        }
+        //console.log(sanctuaryChecks[i], sanctuaryPoints); //Keep for debugging
+    }
+
+    //Parse Sky Temple Grounds
+    for (i in skyTempleChecks) {
+        if (sevenChecks.includes(skyTempleChecks[i])) {
+            skyTemplePoints += 7
+        }
+        if (fiveChecks.includes(skyTempleChecks[i])) {
+            skyTemplePoints += 5
+        }
+        if (threeChecks.includes(skyTempleChecks[i])) {
+            skyTemplePoints += 3
+        }
+        //console.log(skyTempleChecks[i], skyTemplePoints); //Keep for debugging
+    }
+
+    //Parse Dark Agon Wastes
+    for (i in dargonChecks) {
+        if (sevenChecks.includes(dargonChecks[i])) {
+            dArgonPoints += 7
+        }
+        if (fiveChecks.includes(dargonChecks[i])) {
+            dArgonPoints += 5
+        }
+        if (threeChecks.includes(dargonChecks[i])) {
+            dArgonPoints += 3
+        }
+        //console.log(dargonChecks[i], dArgonPoints); //Keep for debugging
+    }
+
+    //Parse Dark Torvus Bog
+    for (i in dtorvusChecks) {
+        if (sevenChecks.includes(dtorvusChecks[i])) {
+            dTorvusPoints += 7
+        }
+        if (fiveChecks.includes(dtorvusChecks[i])) {
+            dTorvusPoints += 5
+        }
+        if (threeChecks.includes(dtorvusChecks[i])) {
+            dTorvusPoints += 3
+        }
+        //console.log(dtorvusChecks[i], dTorvusPoints); //Keep for debugging
+    }
+
+    //Parse Ing Hive
+    for (i in ingChecks) {
+        if (sevenChecks.includes(ingChecks[i])) {
+            ingPoints += 7
+        }
+        if (fiveChecks.includes(ingChecks[i])) {
+            ingPoints += 5
+        }
+        if (threeChecks.includes(ingChecks[i])) {
+            ingPoints += 3
+        }
+        //console.log(ingChecks[i], ingPoints); //Keep for debugging
     }
 
     displayPoints();
@@ -250,35 +368,11 @@ function drop(ev) {
 }
 
 function startingItems() {
-    var list = [];
-    var artList = [];
-    for (var i = 0; i < startingItemsList.length; i++) {
-        if (currentSeed['gameConfig']['startingItems'][startingItemsList[i]] == false || currentSeed['gameConfig']['startingItems'][startingItemsList[i]] == 0) {
-            list[i] = 0;
-        } else {
-            list[i] = 1;
-        }
-    }
-    for (var j = 0; j < list.length; j++) {
-        if (list[j] == 0) {
+    var list = currentSeed['game_modifications'][0]['starting_equipment']['pickups'];
 
-        } else {
-            document.getElementById('starting').appendChild(document.getElementById(imgList[j]));
-        }
-    }
-
-    for (var k = 0; k < artifactList.length; k++) {
-        if (currentSeed['gameConfig']['artifactTempleLayerOverrides'][artifactList[k]] == false) {
-            artList[k] = 0;
-        } else {
-            artList[k] = 1;
-        }
-    }
-    for (var l = 1; l < artList.length + 1; l++) {
-        var variable = 'artifact' + l;
-        if (artList[(l - 1)] == 0) {
-            document.getElementById('starting').appendChild(document.getElementById(variable));
-        } else {
+    for (i in startingItemsList) {
+        if (list.includes(startingItemsList[i])) {
+            document.getElementById('starting').appendChild(document.getElementById(imgList[i]).cloneNode(true))
         }
     }
 }

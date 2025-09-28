@@ -2,8 +2,9 @@ const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 const detailInfo = `
 - Updated Prime 2 layout with new images and matching background
-- Started adding logic to checks
-- Assigned point values to checks`
+- Assigned point values to checks
+- Added Prime 2 to tracker
+- Both Prime & Echoes should work with multiworlds where only that game is there. (Currently, will not work for Prime/Echoes crossed multiworld. That will be coming soon.)`
 
 const buildNumber = '252809.1'
 
@@ -27,9 +28,9 @@ const menuTemplate = [
                 role: 'forceReload',
                 accelerator: 'CommandOrControl+F5'
             },
-            {
+            /*{
                 role: 'toggleDevTools'
-            },
+            },*/
             {
                 role: 'togglefullscreen'
             }
@@ -71,8 +72,8 @@ Menu.setApplicationMenu(menu)
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 870,
-        height: 760,
+        width: 900,
+        height: 900,
         title: "MPR Points Tracker",
         icon: 'src/images/varia.png'
     })
