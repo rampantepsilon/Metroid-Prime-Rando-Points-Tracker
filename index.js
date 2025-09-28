@@ -5,6 +5,8 @@ const detailInfo = `
 - Started adding logic to checks
 - Assigned point values to checks`
 
+const buildNumber = '252809.1'
+
 const menuTemplate = [
     {
         label: "File",
@@ -34,16 +36,34 @@ const menuTemplate = [
         ]
     },
     {
-        label: 'Version ' + app.getVersion(),
-        click: function () {
-            const options = {
-                message: "Changelog for v" + app.getVersion(),
-                detail: detailInfo,
-                type: 'info',
-                buttons: ['Close']
-            };
-            dialog.showMessageBox(null, options, (response, checkboxChecked) => { });
-        }
+        label: 'About',
+        submenu: [
+            {
+                label: 'MPR Points Tracker',
+                enabled: false
+            },
+            {
+                label: 'Version ' + app.getVersion(),
+                enabled: false
+            },
+            {
+                label: 'Build ' + buildNumber,
+                enabled: false
+            },
+
+            {
+                label: 'Version ' + app.getVersion(),
+                click: function () {
+                    const options = {
+                        message: "Changelog for v" + app.getVersion(),
+                        detail: detailInfo,
+                        type: 'info',
+                        buttons: ['Close']
+                    };
+                    dialog.showMessageBox(null, options, (response, checkboxChecked) => { });
+                }
+            }
+        ]
     }
 ]
 const menu = Menu.buildFromTemplate(menuTemplate)
