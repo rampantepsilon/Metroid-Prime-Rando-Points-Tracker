@@ -53,7 +53,7 @@ const menuTemplate = [
             },
 
             {
-                label: 'Version ' + app.getVersion(),
+                label: 'Changelog',
                 click: function () {
                     const options = {
                         message: "Changelog for v" + app.getVersion(),
