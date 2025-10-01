@@ -11,15 +11,21 @@ var phazonChecks = new Array();
 var phendranaChecks = new Array();
 var tallonChecks = new Array();
 
+var fileType;
+
 var loadSeed = function (event) {
     let file = document.getElementById('file-input');
     event.preventDefault();
     if (!file.value.length) {
         return;
     } else {
-        /*if (file.value.toString().substring(file.value.length - 5) == '.json') {
-            document.getElementById('seedName').innerHTML = file.value.toString().substring(12, file.value.length - 13);
-        }*/
+        if (file.value.toString().substring(file.value.length - 5) == '.json') {
+            fileType = 'JSON'
+        } else if (file.value.toString().substring(file.value.length - 8) == '.rdvgame') {
+            fileType = 'RDVGAME'
+        } else {
+            window.alert('Invalid File Type Selected. Unexpected Error Occurred.')
+        }
         let reader = new FileReader();
         reader.onload = logFile;
         reader.readAsText(file.files[0]);
@@ -27,28 +33,33 @@ var loadSeed = function (event) {
 };
 
 function logFile(event) {
-    let str = event.target.result;
-    currentSeed = JSON.parse(str);
+    if (fileType == 'JSON') {
+        let str = event.target.result;
+        currentSeed = JSON.parse(str);
 
-    //Get Index of Seed Name Start
-    var seedNameIndex = currentSeed['gameConfig']['mainMenuMessage'].indexOf("\n");
-    if (currentSeed['outputIso'].includes("Prime Randomizer")) {
-        document.getElementById('randovania').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring(0, seedNameIndex) + " (Prime)";
-    } else {
-        document.getElementById('randovania').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring(0, seedNameIndex) + " (Unknown)";
+        //Get Index of Seed Name Start
+        var seedNameIndex = currentSeed['gameConfig']['mainMenuMessage'].indexOf("\n");
+        if (currentSeed['outputIso'].includes("Prime Randomizer")) {
+            document.getElementById('randovania').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring(0, seedNameIndex) + " (Prime)";
+        } else {
+            document.getElementById('randovania').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring(0, seedNameIndex) + " (Unknown)";
+        }
+        document.getElementById('seedName').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring((seedNameIndex + 1));
+
+        chozoPoints = 0;
+        magPoints = 0;
+        phazonPoints = 0;
+        phenPoints = 0;
+        tallonPoints = 0;
+
+        calcPoints();
     }
-    document.getElementById('seedName').innerHTML = currentSeed['gameConfig']['mainMenuMessage'].substring((seedNameIndex + 1));
-
-    chozoPoints = 0;
-    magPoints = 0;
-    phazonPoints = 0;
-    phenPoints = 0;
-    tallonPoints = 0;
-
-    calcPoints();
+    if (fileType == 'RDVGAME') {
+        window.alert('Coming Soon')
+    }
 }
 
-function calcPoints() {
+function calcPoints() { //JSON Files Only
     startingItems();
 
     //Get choice to calculate 1pt checks or not
