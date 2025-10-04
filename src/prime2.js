@@ -96,13 +96,13 @@ function calcPoints() {
     //Assign Points Temple Grounds
     for (i in templeChecks) {
         if (sevenChecks.includes(templeChecks[i])) {
-            templePoints += 7
+            templePoints += 9
         }
         if (fiveChecks.includes(templeChecks[i])) {
-            templePoints += 5
+            templePoints += 7
         }
         if (threeChecks.includes(templeChecks[i])) {
-            templePoints += 3
+            templePoints += 5
         }
         //console.log(templeChecks[i], templePoints); //Keep for debugging
     }
@@ -110,13 +110,13 @@ function calcPoints() {
     //Assign Points Great Temple Grounds
     for (i in greatTempleChecks) {
         if (sevenChecks.includes(greatTempleChecks[i])) {
-            greatTemplePoints += 7
+            greatTemplePoints += 9
         }
         if (fiveChecks.includes(greatTempleChecks[i])) {
-            greatTemplePoints += 5
+            greatTemplePoints += 7
         }
         if (threeChecks.includes(greatTempleChecks[i])) {
-            greatTemplePoints += 3
+            greatTemplePoints += 5
         }
         //console.log(greatTempleChecks[i], greatTemplePoints); //Keep for debugging
     }
@@ -124,13 +124,13 @@ function calcPoints() {
     //Assign Points Agon Wastes
     for (i in argonChecks) {
         if (sevenChecks.includes(argonChecks[i])) {
-            argonPoints += 7
+            argonPoints += 9
         }
         if (fiveChecks.includes(argonChecks[i])) {
-            argonPoints += 5
+            argonPoints += 7
         }
         if (threeChecks.includes(argonChecks[i])) {
-            argonPoints += 3
+            argonPoints += 5
         }
         //console.log(argonChecks[i], argonPoints); //Keep for debugging
     }
@@ -138,13 +138,13 @@ function calcPoints() {
     //Assign Points Torvus Bog
     for (i in torvusChecks) {
         if (sevenChecks.includes(torvusChecks[i])) {
-            torvusPoints += 7
+            torvusPoints += 9
         }
         if (fiveChecks.includes(torvusChecks[i])) {
-            torvusPoints += 5
+            torvusPoints += 7
         }
         if (threeChecks.includes(torvusChecks[i])) {
-            torvusPoints += 3
+            torvusPoints += 5
         }
         //console.log(torvusChecks[i], torvusPoints); //Keep for debugging
     }
@@ -152,13 +152,13 @@ function calcPoints() {
     //Assign Points Sanctuary Fortress
     for (i in sanctuaryChecks) {
         if (sevenChecks.includes(sanctuaryChecks[i])) {
-            sanctuaryPoints += 7
+            sanctuaryPoints += 9
         }
         if (fiveChecks.includes(sanctuaryChecks[i])) {
-            sanctuaryPoints += 5
+            sanctuaryPoints += 7
         }
         if (threeChecks.includes(sanctuaryChecks[i])) {
-            sanctuaryPoints += 3
+            sanctuaryPoints += 5
         }
         //console.log(sanctuaryChecks[i], sanctuaryPoints); //Keep for debugging
     }
@@ -166,13 +166,13 @@ function calcPoints() {
     //Parse Sky Temple Grounds
     for (i in skyTempleChecks) {
         if (sevenChecks.includes(skyTempleChecks[i])) {
-            skyTemplePoints += 7
+            skyTemplePoints += 9
         }
         if (fiveChecks.includes(skyTempleChecks[i])) {
-            skyTemplePoints += 5
+            skyTemplePoints += 7
         }
         if (threeChecks.includes(skyTempleChecks[i])) {
-            skyTemplePoints += 3
+            skyTemplePoints += 5
         }
         //console.log(skyTempleChecks[i], skyTemplePoints); //Keep for debugging
     }
@@ -180,13 +180,13 @@ function calcPoints() {
     //Parse Dark Agon Wastes
     for (i in dargonChecks) {
         if (sevenChecks.includes(dargonChecks[i])) {
-            dArgonPoints += 7
+            dArgonPoints += 9
         }
         if (fiveChecks.includes(dargonChecks[i])) {
-            dArgonPoints += 5
+            dArgonPoints += 7
         }
         if (threeChecks.includes(dargonChecks[i])) {
-            dArgonPoints += 3
+            dArgonPoints += 5
         }
         //console.log(dargonChecks[i], dArgonPoints); //Keep for debugging
     }
@@ -194,13 +194,13 @@ function calcPoints() {
     //Parse Dark Torvus Bog
     for (i in dtorvusChecks) {
         if (sevenChecks.includes(dtorvusChecks[i])) {
-            dTorvusPoints += 7
+            dTorvusPoints += 9
         }
         if (fiveChecks.includes(dtorvusChecks[i])) {
-            dTorvusPoints += 5
+            dTorvusPoints += 7
         }
         if (threeChecks.includes(dtorvusChecks[i])) {
-            dTorvusPoints += 3
+            dTorvusPoints += 5
         }
         //console.log(dtorvusChecks[i], dTorvusPoints); //Keep for debugging
     }
@@ -208,13 +208,13 @@ function calcPoints() {
     //Parse Ing Hive
     for (i in ingChecks) {
         if (sevenChecks.includes(ingChecks[i])) {
-            ingPoints += 7
+            ingPoints += 9
         }
         if (fiveChecks.includes(ingChecks[i])) {
-            ingPoints += 5
+            ingPoints += 7
         }
         if (threeChecks.includes(ingChecks[i])) {
-            ingPoints += 3
+            ingPoints += 5
         }
         //console.log(ingChecks[i], ingPoints); //Keep for debugging
     }
@@ -309,13 +309,13 @@ function drag(ev) {
     var data = ev.target.id;
     if (ev.target.parentNode.id == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
         if (data.startsWith('seven')) {
-            points(ev.target.parentNode.id, 7);
+            points(ev.target.parentNode.id, 9);
         }
         if (data.startsWith('five')) {
-            points(ev.target.parentNode.id, 5);
+            points(ev.target.parentNode.id, 7);
         }
         if (data.startsWith('three')) {
-            points(ev.target.parentNode.id, 3);
+            points(ev.target.parentNode.id, 5);
         }
     }
 }
@@ -345,24 +345,24 @@ function drop(ev) {
     }
     if (id == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
         if (ptValue.startsWith('seven')) {
-            points(ev.target.id, -7);
+            points(ev.target.id, -9);
         }
         if (ptValue.startsWith('five')) {
-            points(ev.target.id, -5);
+            points(ev.target.id, -7);
         }
         if (ptValue.startsWith('three')) {
-            points(ev.target.id, -3);
+            points(ev.target.id, -5);
         }
     }
     if (parent == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
         if (ptValue.startsWith('seven')) {
-            points(parent, -7);
+            points(parent, -9);
         }
         if (ptValue.startsWith('five')) {
-            points(parent, -5);
+            points(parent, -7);
         }
         if (ptValue.startsWith('three')) {
-            points(parent, -3);
+            points(parent, -5);
         }
     }
 }
@@ -388,13 +388,13 @@ function returnToPosition(ev) {
     var parent = ev.target.parentNode.id;
     if (parent == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
         if (data.startsWith('seven')) {
-            points(parent, 7);
+            points(parent, 9);
         }
         if (data.startsWith('five')) {
-            points(parent, 5);
+            points(parent, 7);
         }
         if (data.startsWith('three')) {
-            points(parent, 3);
+            points(parent, 5);
         }
     }
 
