@@ -95,6 +95,15 @@
         .pointHidden {
             width: calc(100%);
         }
+
+        .scrollable {
+            height: 110px;
+            overflow-y: scroll;
+        }
+
+        .notScrollable {
+            overflow-y: visible;
+        }
     </style>
 </head>
 
@@ -175,166 +184,179 @@
     <table id="items" class="main pointShown">
         <tr>
             <td>
-                <table width="100%">
-                    <tr>
-                        <td width="100%" ondrop="dropClear(event)" ondragover="allowDrop(event)" id="itemList5">
-                            <table width="100%">
-                                <tr style="outline: thin solid;">
-                                    <td id='1' class="items">
-                                        <img src="images/art_chozo_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact1" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='2' class="items">
-                                        <img src="images/art_elder_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact2" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='3' class="items">
-                                        <img src="images/art_lifegiver_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact3" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='17' class="items">
-                                        <img src="images/power.png" draggable="true" ondragstart="drag(event)"
-                                            id="five10" height="45px" checkType="five">
-                                    </td>
-                                    <td id='18' class="items">
-                                        <img src="images/wave.png" draggable="true" ondragstart="drag(event)" id="five2"
-                                            height="45px" checkType="five">
-                                    </td>
-                                    <td id='19' class="items">
-                                        <img src="images/ice.png" draggable="true" ondragstart="drag(event)" id="five3"
-                                            height="45px" checkType="five">
-                                    </td>
-                                    <td id='20' class="items">
-                                        <img src="images/plasma.png" draggable="true" ondragstart="drag(event)"
-                                            id="five4" height="45px" checkType="five">
-                                    </td>
-                                </tr>
-                                <tr style="outline: thin solid;">
-                                    <td id='4' class="items">
-                                        <img src="images/art_nature_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact4" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='5' class="items">
-                                        <img src="images/art_newborn_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact5" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='6' class="items">
-                                        <img src="images/art_spirit_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact6" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='25' class="items">
-                                        <img src="images/super.png" draggable="true" ondragstart="drag(event)"
-                                            id="five6" height="45px" checkType="five">
-                                    </td>
-                                    <td id='26' class="items">
-                                        <img src="images/wavebuster.png" draggable="true" ondragstart="drag(event)"
-                                            id="five7" height="45px" checkType="five">
-                                    </td>
-                                    <td id='27' class="items">
-                                        <img src="images/icespreader.png" draggable="true" ondragstart="drag(event)"
-                                            id="five8" height="45px" checkType="five">
-                                    </td>
-                                    <td id='28' class="items">
-                                        <img src="images/flamethrower.png" draggable="true" ondragstart="drag(event)"
-                                            id="five9" height="45px" checkType="five">
-                                    </td>
-                                </tr>
-                                <tr style="outline: thin solid;">
-                                    <td id='7' class="items">
-                                        <img src="images/art_strength_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact7" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='8' class="items">
-                                        <img src="images/art_sun_orange.png" draggable="true" ondragstart="drag(event)"
-                                            id="artifact8" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='9' class="items">
-                                        <img src="images/art_truth_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact9" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id="30" class="items">
-                                        <img src="images/morph.png" draggable="true" ondragstart="drag(event)"
-                                            id="three3" height="45px" checkType="three">
-                                    </td>
-                                    <td id="31" class="items">
-                                        <img src="images/bomb.png" draggable="true" ondragstart="drag(event)"
-                                            id="three1" height="45px" checkType="three">
-                                    </td>
-                                    <td id="32" class="items">
-                                        <img src="images/boost.png" draggable="true" ondragstart="drag(event)"
-                                            id="three2" height="45px" checkType="three">
-                                    </td>
-                                    <td id="33" class="items">
-                                        <img src="images/spider.png" draggable="true" ondragstart="drag(event)"
-                                            id="three5" height="45px" checkType="three">
-                                    </td>
-                                </tr>
-                                <tr style="outline: thin solid;">
-                                    <td id='10' class="items">
-                                        <img src="images/art_warrior_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact10" height="45px"
-                                            checkType="artifact">
-                                    </td>
-                                    <td id='11' class="items">
-                                        <img src="images/art_wild_orange.png" draggable="true" ondragstart="drag(event)"
-                                            id="artifact11" height="45px" checkType="artifact">
-                                    </td>
-                                    <td id='12' class="items">
-                                        <img src="images/art_world_orange.png" draggable="true"
-                                            ondragstart="drag(event)" id="artifact12" height="45px"
-                                            checkType="artifact">
-                                    </td>
-                                    <td id='21' class="items">
-                                        <img src="images/charge.png" draggable="true" ondragstart="drag(event)"
-                                            id="five5" height="45px" checkType="five">
-                                    </td>
-                                    <td id="16" class="items">
-                                        <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
-                                            id="three4" height="45px" checkType="three">
-                                    </td>
-                                    <td id='22' class="items">
-                                        <img src="images/space.png" draggable="true" ondragstart="drag(event)"
-                                            id="three8" height="45px" checkType="three">
-                                    </td>
-                                    <td id='29' class="items">
-                                        <img src="images/grapple.png" draggable="true" ondragstart="drag(event)"
-                                            id="five1" height="45px" checkType="five">
-                                    </td>
-                                </tr>
-                                <tr style="outline: thin solid;">
-                                    <td id='13' class="items">
-                                        <img src="images/varia.png" draggable="true" ondragstart="drag(event)"
-                                            id="suit1" height="45px" checkType="suit">
-                                    </td>
-                                    <td id='14' class="items">
-                                        <img src="images/gravity.png" draggable="true" ondragstart="drag(event)"
-                                            id="suit2" height="45px" checkType="suit">
-                                    </td>
-                                    <td id='15' class="items">
-                                        <img src="images/phazon.png" draggable="true" ondragstart="drag(event)"
-                                            id="suit3" height="45px" checkType="suit">
-                                    </td>
-                                    <td id="24" class="items">
-                                        <img src="images/missile.png" draggable="true" ondragstart="drag(event)"
-                                            id="missiles" height="45px" checkType="one">
-                                    </td>
-                                    <td id="24" class="items">
-                                        <img src="images/energytank.png" draggable="true" ondragstart="drag(event)"
-                                            id="energy" height="45px" checkType="one">
-                                    </td>
-                                    <td id="24" class="items">
-                                        <img src="images/xray.png" draggable="true" ondragstart="drag(event)"
-                                            id="three7" height="45px" checkType="three">
-                                    </td>
-                                    <td id="23" class="items">
-                                        <img src="images/thermal.png" draggable="true" ondragstart="drag(event)"
-                                            id="three6" height="45px" checkType="three">
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                <div id="itemScroll" class="notScrollable">
+                    <table width="100%">
+                        <tr>
+                            <td width="100%" ondrop="dropClear(event)" ondragover="allowDrop(event)" id="itemList5">
+                                <table width="100%">
+                                    <tr style="outline: thin solid;">
+                                        <td id='1' class="items">
+                                            <img src="images/art_chozo_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact1" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='2' class="items">
+                                            <img src="images/art_elder_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact2" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='3' class="items">
+                                            <img src="images/art_lifegiver_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact3" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='17' class="items">
+                                            <img src="images/power.png" draggable="true" ondragstart="drag(event)"
+                                                id="five10" height="45px" checkType="five">
+                                        </td>
+                                        <td id='18' class="items">
+                                            <img src="images/wave.png" draggable="true" ondragstart="drag(event)"
+                                                id="five2" height="45px" checkType="five">
+                                        </td>
+                                        <td id='19' class="items">
+                                            <img src="images/ice.png" draggable="true" ondragstart="drag(event)"
+                                                id="five3" height="45px" checkType="five">
+                                        </td>
+                                        <td id='20' class="items">
+                                            <img src="images/plasma.png" draggable="true" ondragstart="drag(event)"
+                                                id="five4" height="45px" checkType="five">
+                                        </td>
+                                    </tr>
+                                    <tr style="outline: thin solid;">
+                                        <td id='4' class="items">
+                                            <img src="images/art_nature_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact4" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='5' class="items">
+                                            <img src="images/art_newborn_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact5" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='6' class="items">
+                                            <img src="images/art_spirit_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact6" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='25' class="items">
+                                            <img src="images/super.png" draggable="true" ondragstart="drag(event)"
+                                                id="five6" height="45px" checkType="five">
+                                        </td>
+                                        <td id='26' class="items">
+                                            <img src="images/wavebuster.png" draggable="true" ondragstart="drag(event)"
+                                                id="five7" height="45px" checkType="five">
+                                        </td>
+                                        <td id='27' class="items">
+                                            <img src="images/icespreader.png" draggable="true" ondragstart="drag(event)"
+                                                id="five8" height="45px" checkType="five">
+                                        </td>
+                                        <td id='28' class="items">
+                                            <img src="images/flamethrower.png" draggable="true"
+                                                ondragstart="drag(event)" id="five9" height="45px" checkType="five">
+                                        </td>
+                                    </tr>
+                                    <tr style="outline: thin solid;">
+                                        <td id='7' class="items">
+                                            <img src="images/art_strength_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact7" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='8' class="items">
+                                            <img src="images/art_sun_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact8" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='9' class="items">
+                                            <img src="images/art_truth_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact9" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id="30" class="items">
+                                            <img src="images/morph.png" draggable="true" ondragstart="drag(event)"
+                                                id="three3" height="45px" checkType="three">
+                                        </td>
+                                        <td id="31" class="items">
+                                            <img src="images/bomb.png" draggable="true" ondragstart="drag(event)"
+                                                id="three1" height="45px" checkType="three">
+                                        </td>
+                                        <td id="32" class="items">
+                                            <img src="images/boost.png" draggable="true" ondragstart="drag(event)"
+                                                id="three2" height="45px" checkType="three">
+                                        </td>
+                                        <td id="33" class="items">
+                                            <img src="images/spider.png" draggable="true" ondragstart="drag(event)"
+                                                id="three5" height="45px" checkType="three">
+                                        </td>
+                                    </tr>
+                                    <tr style="outline: thin solid;">
+                                        <td id='10' class="items">
+                                            <img src="images/art_warrior_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact10" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='11' class="items">
+                                            <img src="images/art_wild_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact11" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='12' class="items">
+                                            <img src="images/art_world_orange.png" draggable="true"
+                                                ondragstart="drag(event)" id="artifact12" height="45px"
+                                                checkType="artifact">
+                                        </td>
+                                        <td id='21' class="items">
+                                            <img src="images/charge.png" draggable="true" ondragstart="drag(event)"
+                                                id="five5" height="45px" checkType="five">
+                                        </td>
+                                        <td id="16" class="items">
+                                            <img src="images/powerbomb.png" draggable="true" ondragstart="drag(event)"
+                                                id="three4" height="45px" checkType="three">
+                                        </td>
+                                        <td id='22' class="items">
+                                            <img src="images/space.png" draggable="true" ondragstart="drag(event)"
+                                                id="three8" height="45px" checkType="three">
+                                        </td>
+                                        <td id='29' class="items">
+                                            <img src="images/grapple.png" draggable="true" ondragstart="drag(event)"
+                                                id="five1" height="45px" checkType="five">
+                                        </td>
+                                    </tr>
+                                    <tr style="outline: thin solid;">
+                                        <td id='13' class="items">
+                                            <img src="images/varia.png" draggable="true" ondragstart="drag(event)"
+                                                id="suit1" height="45px" checkType="suit">
+                                        </td>
+                                        <td id='14' class="items">
+                                            <img src="images/gravity.png" draggable="true" ondragstart="drag(event)"
+                                                id="suit2" height="45px" checkType="suit">
+                                        </td>
+                                        <td id='15' class="items">
+                                            <img src="images/phazon.png" draggable="true" ondragstart="drag(event)"
+                                                id="suit3" height="45px" checkType="suit">
+                                        </td>
+                                        <td id="24" class="items">
+                                            <img src="images/missile.png" draggable="true" ondragstart="drag(event)"
+                                                id="missiles" height="45px" checkType="one">
+                                        </td>
+                                        <td id="24" class="items">
+                                            <img src="images/energytank.png" draggable="true" ondragstart="drag(event)"
+                                                id="energy" height="45px" checkType="one">
+                                        </td>
+                                        <td id="24" class="items">
+                                            <img src="images/xray.png" draggable="true" ondragstart="drag(event)"
+                                                id="three7" height="45px" checkType="three">
+                                        </td>
+                                        <td id="23" class="items">
+                                            <img src="images/thermal.png" draggable="true" ondragstart="drag(event)"
+                                                id="three6" height="45px" checkType="three">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div align="center"><input type="button" value="Toggle Item Scroll" onclick="scrollToggle();" /></div>
             </td>
         </tr>
     </table>

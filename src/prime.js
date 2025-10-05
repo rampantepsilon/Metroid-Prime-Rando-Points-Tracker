@@ -437,3 +437,16 @@ function background() {
         backgroundOn = false;
     }
 }
+
+var scrollStatus = true;
+function scrollToggle() {
+    if (scrollStatus == true) {
+        document.getElementById('itemScroll').classList.add('scrollable')
+        document.getElementById('itemScroll').classList.remove('notScrollable')
+        scrollStatus = false;
+    } else {
+        document.getElementById('itemScroll').classList.add('notScrollable')
+        document.getElementById('itemScroll').classList.remove('scrollable')
+        scrollStatus = true;
+    }
+}

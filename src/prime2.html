@@ -82,6 +82,15 @@
         .pointHidden {
             width: calc(100%);
         }
+
+        .scrollable {
+            height: 110px;
+            overflow-y: scroll;
+        }
+
+        .notScrollable {
+            overflow-y: visible;
+        }
     </style>
 </head>
 
@@ -187,173 +196,184 @@
     <table id="items" class="main pointShown">
         <tr>
             <td>
-                <table width="100%">
-                    <tr>
-                        <td width="100%" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList5">
-                            <table width="100%">
-                                <tr style="outline: thin solid;">
-                                    <td id='1' class="items">
-                                        <img src="images/prime2/translator_violet.png" draggable="true"
-                                            ondragstart="drag(event)" points='seven' id="translator_violet"
-                                            height="45px" title="Violet Translator">
-                                    </td>
-                                    <td id='2' class="items">
-                                        <img src="images/prime2/translator_amber.png" draggable="true"
-                                            ondragstart="drag(event)" points='seven' id="translator_amber" height="45px"
-                                            title="Amber Translator">
-                                    </td>
-                                    <td id='3' class="items">
-                                        <img src="images/prime2/translator_emerald.png" draggable="true"
-                                            ondragstart="drag(event)" points='seven' id="translator_emerald"
-                                            height="45px" title="Emerald Translator">
-                                    </td>
-                                    <td id='4' class="items">
-                                        <img src="images/prime2/translator_cobalt.png" draggable="true"
-                                            ondragstart="drag(event)" points='seven' id="translator_cobalt"
-                                            height="45px" title="Cobalt Translator">
-                                    </td>
-                                    <td id='5' class="items">
-                                        <img src="images/prime2/key_sky.png" draggable="true" ondragstart="drag(event)"
-                                            points='seven' id="key_sky" height="45px" title="Sky Temple Key">
-                                    </td>
-                                    <td id='6' class="items">
-                                        <img src="images/prime2/key_argon.png" draggable="true"
-                                            ondragstart="drag(event)" points='seven' id="key_argon" height="45px"
-                                            title="Dark Agon Key">
-                                    </td>
-                                    <td id='7' class="items">
-                                        <img src="images/prime2/key_torvus.png" draggable="true"
-                                            ondragstart="drag(event)" points='seven' id="key_torvus" height="45px"
-                                            title="Dark Torvus Key">
-                                    </td>
-                                    <td id='8' class="items">
-                                        <img src="images/prime2/key_sanctuary.png" draggable="true"
-                                            ondragstart="drag(event)" points='seven' id="key_sanctuary" height="45px"
-                                            title="Ing Hive Key">
-                                    </td>
-                                </tr>
-                                <tr style="outline: thin solid;">
-                                    <td id='9' class="items">
-                                        <img src="images/prime2/darksuit.png" draggable="true" ondragstart="drag(event)"
-                                            points='five' id="darksuit" height="45px" title="Dark Suit">
-                                    </td>
-                                    <td id='10' class="items">
-                                        <img src="images/prime2/lightsuit.png" draggable="true"
-                                            ondragstart="drag(event)" points='five' id="lightsuit" height="45px"
-                                            title="Light Suit">
-                                    </td>
-                                    <td id='11' class="items">
-                                        <img src="images/prime2/darkbeam.png" draggable="true" ondragstart="drag(event)"
-                                            points='five' id="darkbeam" height="45px" title="Dark Beam">
-                                    </td>
-                                    <td id='12' class="items">
-                                        <img src="images/prime2/lightbeam.png" draggable="true"
-                                            ondragstart="drag(event)" points='five' id="lightbeam" height="45px"
-                                            title="Light Beam">
-                                    </td>
-                                    <td id='13' class="items">
-                                        <img src="images/prime2/annihilator.png" draggable="true"
-                                            ondragstart="drag(event)" points='five' id="annihilator" height="45px"
-                                            title="Annihilator Beam">
-                                    </td>
-                                    <td id='14' class="items">
-                                        <img src="images/prime2/darkburst.png" draggable="true"
-                                            ondragstart="drag(event)" points='five' id="darkburst" height="45px"
-                                            title="Darkburst">
-                                    </td>
-                                    <td id='15' class="items">
-                                        <img src="images/prime2/sunburst.png" draggable="true" ondragstart="drag(event)"
-                                            points='five' id="sunburst" height="45px" title="Sunburst">
-                                    </td>
-                                    <td id='16' class="items">
-                                        <img src="images/prime2/sonicboom.png" draggable="true"
-                                            ondragstart="drag(event)" points='five' id="sonicboom" height="45px"
-                                            title="Sonic Boom">
-                                    </td>
-                                </tr>
-                                <tr style="outline: thin solid;">
-                                    <td id='17' class="items">
-                                        <img src="images/prime2/darkvisor.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="darkvisor" height="45px"
-                                            title="Dark Visor">
-                                    </td>
-                                    <td id='18' class="items">
-                                        <img src="images/prime2/echovisor.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="echovisor" height="45px"
-                                            title="Echo Visor">
-                                    </td>
-                                    <td id='19' class="items">
-                                        <img src="images/prime2/bomb.png" draggable="true" ondragstart="drag(event)"
-                                            points='three' id="bomb" height="45px" title="Morph Ball Bomb">
-                                    </td>
-                                    <td id='20' class="items">
-                                        <img src="images/prime2/powerbomb.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="powerbomb" height="45px"
-                                            title="Power Bomb">
-                                    </td>
-                                    <td id='21' class="items">
-                                        <img src="images/prime2/boostball.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="boostball" height="45px"
-                                            title="Boost Ball">
-                                    </td>
-                                    <td id='22' class="items">
-                                        <img src="images/prime2/spider.png" draggable="true" ondragstart="drag(event)"
-                                            points='three' id="spider" height="45px" title="Spider Ball">
-                                    </td>
-                                    <td id='23' class="items">
-                                        <img src="images/prime2/seekermissile.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="seekermissile" height="45px"
-                                            title="Seeker Launcher">
-                                    </td>
-                                    <td id='24' class="items">
-                                        <img src="images/prime2/supermissile.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="supermissile" height="45px"
-                                            title="Super Missile">
-                                    </td>
-                                </tr>
-                                <tr style="outline: thin solid;">
-                                    <td id='25' class="items">
-                                        <img src="images/prime2/spacejump.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="spacejump" height="45px"
-                                            title="Space Jump Boots">
-                                    </td>
-                                    <td id="26" class="items">
-                                        <img src="images/prime2/gravityboost.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="gravityboost" height="45px"
-                                            title="Gravity Boost">
-                                    </td>
-                                    <td id="27" class="items">
-                                        <img src="images/prime2/grapple.png" draggable="true" ondragstart="drag(event)"
-                                            points='three' id="grapple" height="45px" title="Grapple Beam">
-                                    </td>
-                                    <td id="28" class="items">
-                                        <img src="images/prime2/screwattack.png" draggable="true"
-                                            ondragstart="drag(event)" points='three' id="screwattack" height="45px"
-                                            title="Screw Attack">
-                                    </td>
-                                    <td id='29' class="items">
-                                        <img src="images/prime2/etank.png" draggable="true" ondragstart="drag(event)"
-                                            points='one' id="etank" height="45px" title="Energy Tank">
-                                    </td>
-                                    <td id="30" class="items">
-                                        <img src="images/prime2/darkammo.png" draggable="true" ondragstart="drag(event)"
-                                            points='one' id="darkammo" height="45px" title="Dark Ammo Expansion">
-                                    </td>
-                                    <td id="31" class="items">
-                                        <img src="images/prime2/lightammo.png" draggable="true"
-                                            ondragstart="drag(event)" points='one' id="lightammo" height="45px"
-                                            title="Light Ammo Expansion">
-                                    </td>
-                                    <td id="32" class="items">
-                                        <img src="images/prime2/missileexp.png" draggable="true"
-                                            ondragstart="drag(event)" points='one' id="missileexp" height="45px"
-                                            title="Missile Expansion">
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                <div id="itemScroll" class="notScrollable">
+                    <table width="100%">
+                        <tr>
+                            <td width="100%" ondrop="drop(event)" ondragover="allowDrop(event)" id="itemList5">
+                                <table width="100%">
+                                    <tr style="outline: thin solid;">
+                                        <td id='1' class="items">
+                                            <img src="images/prime2/translator_violet.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="translator_violet"
+                                                height="45px" title="Violet Translator">
+                                        </td>
+                                        <td id='2' class="items">
+                                            <img src="images/prime2/translator_amber.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="translator_amber"
+                                                height="45px" title="Amber Translator">
+                                        </td>
+                                        <td id='3' class="items">
+                                            <img src="images/prime2/translator_emerald.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="translator_emerald"
+                                                height="45px" title="Emerald Translator">
+                                        </td>
+                                        <td id='4' class="items">
+                                            <img src="images/prime2/translator_cobalt.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="translator_cobalt"
+                                                height="45px" title="Cobalt Translator">
+                                        </td>
+                                        <td id='5' class="items">
+                                            <img src="images/prime2/key_sky.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="key_sky" height="45px"
+                                                title="Sky Temple Key">
+                                        </td>
+                                        <td id='6' class="items">
+                                            <img src="images/prime2/key_argon.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="key_argon" height="45px"
+                                                title="Dark Agon Key">
+                                        </td>
+                                        <td id='7' class="items">
+                                            <img src="images/prime2/key_torvus.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="key_torvus" height="45px"
+                                                title="Dark Torvus Key">
+                                        </td>
+                                        <td id='8' class="items">
+                                            <img src="images/prime2/key_sanctuary.png" draggable="true"
+                                                ondragstart="drag(event)" points='seven' id="key_sanctuary"
+                                                height="45px" title="Ing Hive Key">
+                                        </td>
+                                    </tr>
+                                    <tr style="outline: thin solid;">
+                                        <td id='9' class="items">
+                                            <img src="images/prime2/darksuit.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="darksuit" height="45px"
+                                                title="Dark Suit">
+                                        </td>
+                                        <td id='10' class="items">
+                                            <img src="images/prime2/lightsuit.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="lightsuit" height="45px"
+                                                title="Light Suit">
+                                        </td>
+                                        <td id='11' class="items">
+                                            <img src="images/prime2/darkbeam.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="darkbeam" height="45px"
+                                                title="Dark Beam">
+                                        </td>
+                                        <td id='12' class="items">
+                                            <img src="images/prime2/lightbeam.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="lightbeam" height="45px"
+                                                title="Light Beam">
+                                        </td>
+                                        <td id='13' class="items">
+                                            <img src="images/prime2/annihilator.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="annihilator" height="45px"
+                                                title="Annihilator Beam">
+                                        </td>
+                                        <td id='14' class="items">
+                                            <img src="images/prime2/darkburst.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="darkburst" height="45px"
+                                                title="Darkburst">
+                                        </td>
+                                        <td id='15' class="items">
+                                            <img src="images/prime2/sunburst.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="sunburst" height="45px"
+                                                title="Sunburst">
+                                        </td>
+                                        <td id='16' class="items">
+                                            <img src="images/prime2/sonicboom.png" draggable="true"
+                                                ondragstart="drag(event)" points='five' id="sonicboom" height="45px"
+                                                title="Sonic Boom">
+                                        </td>
+                                    </tr>
+                                    <tr style="outline: thin solid;">
+                                        <td id='17' class="items">
+                                            <img src="images/prime2/darkvisor.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="darkvisor" height="45px"
+                                                title="Dark Visor">
+                                        </td>
+                                        <td id='18' class="items">
+                                            <img src="images/prime2/echovisor.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="echovisor" height="45px"
+                                                title="Echo Visor">
+                                        </td>
+                                        <td id='19' class="items">
+                                            <img src="images/prime2/bomb.png" draggable="true" ondragstart="drag(event)"
+                                                points='three' id="bomb" height="45px" title="Morph Ball Bomb">
+                                        </td>
+                                        <td id='20' class="items">
+                                            <img src="images/prime2/powerbomb.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="powerbomb" height="45px"
+                                                title="Power Bomb">
+                                        </td>
+                                        <td id='21' class="items">
+                                            <img src="images/prime2/boostball.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="boostball" height="45px"
+                                                title="Boost Ball">
+                                        </td>
+                                        <td id='22' class="items">
+                                            <img src="images/prime2/spider.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="spider" height="45px"
+                                                title="Spider Ball">
+                                        </td>
+                                        <td id='23' class="items">
+                                            <img src="images/prime2/seekermissile.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="seekermissile"
+                                                height="45px" title="Seeker Launcher">
+                                        </td>
+                                        <td id='24' class="items">
+                                            <img src="images/prime2/supermissile.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="supermissile" height="45px"
+                                                title="Super Missile">
+                                        </td>
+                                    </tr>
+                                    <tr style="outline: thin solid;">
+                                        <td id='25' class="items">
+                                            <img src="images/prime2/spacejump.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="spacejump" height="45px"
+                                                title="Space Jump Boots">
+                                        </td>
+                                        <td id="26" class="items">
+                                            <img src="images/prime2/gravityboost.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="gravityboost" height="45px"
+                                                title="Gravity Boost">
+                                        </td>
+                                        <td id="27" class="items">
+                                            <img src="images/prime2/grapple.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="grapple" height="45px"
+                                                title="Grapple Beam">
+                                        </td>
+                                        <td id="28" class="items">
+                                            <img src="images/prime2/screwattack.png" draggable="true"
+                                                ondragstart="drag(event)" points='three' id="screwattack" height="45px"
+                                                title="Screw Attack">
+                                        </td>
+                                        <td id='29' class="items">
+                                            <img src="images/prime2/etank.png" draggable="true"
+                                                ondragstart="drag(event)" points='one' id="etank" height="45px"
+                                                title="Energy Tank">
+                                        </td>
+                                        <td id="30" class="items">
+                                            <img src="images/prime2/darkammo.png" draggable="true"
+                                                ondragstart="drag(event)" points='one' id="darkammo" height="45px"
+                                                title="Dark Ammo Expansion">
+                                        </td>
+                                        <td id="31" class="items">
+                                            <img src="images/prime2/lightammo.png" draggable="true"
+                                                ondragstart="drag(event)" points='one' id="lightammo" height="45px"
+                                                title="Light Ammo Expansion">
+                                        </td>
+                                        <td id="32" class="items">
+                                            <img src="images/prime2/missileexp.png" draggable="true"
+                                                ondragstart="drag(event)" points='one' id="missileexp" height="45px"
+                                                title="Missile Expansion">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div align="center"><input type="button" value="Toggle Item Scroll" onclick="scrollToggle();" /></div>
             </td>
         </tr>
     </table>
