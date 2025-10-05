@@ -19,6 +19,8 @@ var dargonChecks = new Array();
 var dtorvusChecks = new Array();
 var ingChecks = new Array();
 
+var choice;
+
 var loadSeed = function (event) {
     let file = document.getElementById('file-input');
     event.preventDefault();
@@ -35,6 +37,9 @@ var loadSeed = function (event) {
 };
 
 function logFile(event) {
+    //Remove Input Button Add Reload Button
+    document.getElementById('inputButton').innerHTML = `<input type="button" value="Reload Seed" onclick="window.location.reload()" />`
+
     let str = event.target['result'].replace(/[\r\n]+/g, "");
     currentSeed = JSON.parse(str);
     templePoints = 0;
@@ -49,9 +54,11 @@ function logFile(event) {
 
     //Set seedName
     if (currentSeed['info']['randovania_version']) {
-        document.getElementById('seedName').innerHTML = 'Randovania ' + currentSeed['info']['randovania_version'] + " [Prime 2]<br>" + currentSeed['info']['word_hash']
+        document.getElementById('randovania').innerHTML = 'Randovania ' + currentSeed['info']['randovania_version'] + " [Prime 2]"
+        document.getElementById('seedName').innerHTML = currentSeed['info']['word_hash']
     } else {
-        document.getElementById('seedName').innerHTML = 'Randovania (Unknown) [Prime 2]<br>' + currentSeed['info']['word_hash']
+        document.getElementById('randovania').innerHTML = 'Randovania (Unknown) [Prime 2]'
+        document.getElementById('seedName').innerHTML = currentSeed['info']['word_hash']
     }
 
     calcPoints();
@@ -59,6 +66,14 @@ function logFile(event) {
 
 function calcPoints() {
     startingItems();
+
+    //Get Optional Checks Choice
+    var options = document.getElementsByName('1pt');
+    for (i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+            choice = options[i].value;
+        }
+    }
 
     //Parse Check Information 10.1.0 and newer
     var tempChecks = currentSeed['game_modifications'][0]['locations']
@@ -104,6 +119,11 @@ function calcPoints() {
         if (threeChecks.includes(templeChecks[i])) {
             templePoints += 5
         }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(templeChecks[i])) {
+                templePoints += 3
+            }
+        }
         //console.log(templeChecks[i], templePoints); //Keep for debugging
     }
 
@@ -117,6 +137,11 @@ function calcPoints() {
         }
         if (threeChecks.includes(greatTempleChecks[i])) {
             greatTemplePoints += 5
+        }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(greatTempleChecks[i])) {
+                greatTemplePoints += 3
+            }
         }
         //console.log(greatTempleChecks[i], greatTemplePoints); //Keep for debugging
     }
@@ -132,6 +157,11 @@ function calcPoints() {
         if (threeChecks.includes(argonChecks[i])) {
             argonPoints += 5
         }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(argonChecks[i])) {
+                argonPoints += 3
+            }
+        }
         //console.log(argonChecks[i], argonPoints); //Keep for debugging
     }
 
@@ -145,6 +175,11 @@ function calcPoints() {
         }
         if (threeChecks.includes(torvusChecks[i])) {
             torvusPoints += 5
+        }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(torvusChecks[i])) {
+                torvusPoints += 3
+            }
         }
         //console.log(torvusChecks[i], torvusPoints); //Keep for debugging
     }
@@ -160,6 +195,11 @@ function calcPoints() {
         if (threeChecks.includes(sanctuaryChecks[i])) {
             sanctuaryPoints += 5
         }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(sanctuaryChecks[i])) {
+                sanctuaryPoints += 3
+            }
+        }
         //console.log(sanctuaryChecks[i], sanctuaryPoints); //Keep for debugging
     }
 
@@ -173,6 +213,11 @@ function calcPoints() {
         }
         if (threeChecks.includes(skyTempleChecks[i])) {
             skyTemplePoints += 5
+        }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(skyTempleChecks[i])) {
+                skyTemplePoints += 3
+            }
         }
         //console.log(skyTempleChecks[i], skyTemplePoints); //Keep for debugging
     }
@@ -188,6 +233,11 @@ function calcPoints() {
         if (threeChecks.includes(dargonChecks[i])) {
             dArgonPoints += 5
         }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(dargonChecks[i])) {
+                dArgonPoints += 3
+            }
+        }
         //console.log(dargonChecks[i], dArgonPoints); //Keep for debugging
     }
 
@@ -202,6 +252,11 @@ function calcPoints() {
         if (threeChecks.includes(dtorvusChecks[i])) {
             dTorvusPoints += 5
         }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(dtorvusChecks[i])) {
+                dTorvusPoints += 3
+            }
+        }
         //console.log(dtorvusChecks[i], dTorvusPoints); //Keep for debugging
     }
 
@@ -215,6 +270,11 @@ function calcPoints() {
         }
         if (threeChecks.includes(ingChecks[i])) {
             ingPoints += 5
+        }
+        if (choice == 'yes') {
+            if (optionalChecks.includes(ingChecks[i])) {
+                ingPoints += 3
+            }
         }
         //console.log(ingChecks[i], ingPoints); //Keep for debugging
     }
@@ -337,7 +397,13 @@ function drop(ev) {
     var ptValue = nodeCopy.getAttribute('points'); //Get points Attribute to Calculate
 
     if (id == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing' || id == 'starting') {
-        ev.target.appendChild(nodeCopy);
+        if (ptValue.startsWith('one')) {
+            if (choice == 'yes') {
+                ev.target.appendChild(nodeCopy);
+            }
+        } else {
+            ev.target.appendChild(nodeCopy);
+        }
     } else if (parseInt(id)) {
         //ev.target.appendChild(document.getElementById(data));
     } else {
@@ -353,6 +419,11 @@ function drop(ev) {
         if (ptValue.startsWith('three')) {
             points(ev.target.id, -5);
         }
+        if (choice == 'yes') {
+            if (ptValue.startsWith('one')) {
+                points(ev.target.id, -3);
+            }
+        }
     }
     if (parent == 'temple' || 'greatTemple' || 'argon' || 'torvus' || 'sanctuary' || 'skyTemple' || 'dArgon' || 'dTorvus' || 'ing') {
         if (ptValue.startsWith('seven')) {
@@ -363,6 +434,11 @@ function drop(ev) {
         }
         if (ptValue.startsWith('three')) {
             points(parent, -5);
+        }
+        if (choice == 'yes') {
+            if (ptValue.startsWith('one')) {
+                points(parent, -3);
+            }
         }
     }
 }
@@ -396,8 +472,42 @@ function returnToPosition(ev) {
         if (data.startsWith('three')) {
             points(parent, 5);
         }
+        if (data.startsWith('one')) {
+            points(parent, 3);
+        }
     }
 
     //Remove Element
     document.getElementById(clickedElementId).remove();
+}
+
+function pointToggle() {
+    var pointPanel = document.getElementById('info');
+
+    if (pointPanel.checkVisibility()) {
+        pointPanel.style.display = 'none';
+        document.getElementById('locations').classList.add('pointHidden')
+        document.getElementById('locations').classList.remove('pointShown')
+        document.getElementById('items').classList.add('pointHidden')
+        document.getElementById('items').classList.remove('pointShown')
+    } else {
+        pointPanel.style.display = '';
+        document.getElementById('locations').classList.remove('pointHidden')
+        document.getElementById('locations').classList.add('pointShown')
+        document.getElementById('items').classList.remove('pointHidden')
+        document.getElementById('items').classList.add('pointShown')
+    }
+}
+
+var backgroundOn = true;
+function background() {
+    if (backgroundOn == false) {
+        document.getElementById('background').classList.add('background')
+        document.getElementById('background').classList.remove('nobackground')
+        backgroundOn = true;
+    } else {
+        document.getElementById('background').classList.remove('background')
+        document.getElementById('background').classList.add('nobackground')
+        backgroundOn = false;
+    }
 }

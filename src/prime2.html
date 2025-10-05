@@ -11,13 +11,17 @@
         }
 
         body {
-            background-image: url('./images/prime2/background.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
             font-family: 'Prime';
             font-size: 24px;
             color: white;
+        }
+
+        .background {
+            background-image: url('images/prime2/background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         a,
@@ -29,7 +33,7 @@
             text-decoration: none;
         }
 
-        #main {
+        .main {
             background-color: rgba(0, 0, 0, 0.75);
             font-size: 24px;
         }
@@ -70,11 +74,19 @@
             width: calc(100% - 15px);
             z-index: 1;
         }
+
+        .pointShown {
+            width: calc(100% - 130px);
+        }
+
+        .pointHidden {
+            width: calc(100%);
+        }
     </style>
 </head>
 
-<body onload="displayPoints()">
-    <table style="width: calc(100% - 130px);" id="main">
+<body onload="displayPoints()" class="background" id="background">
+    <table id="locations" class="main pointShown">
         <tr>
             <td colspan="2">
                 <a href="index.html">Back To Selection</a>
@@ -82,13 +94,29 @@
             <td>
                 <table width="100%">
                     <tr>
-                        <td style="font-size: 24px;">Current Seed: <span id='seedName'></span></td>
+                        <td style="font-size: 24px;">Current Seed: <span id='randovania'></span><br><span
+                                id='seedName'>&nbsp;</span></td>
                         <td width="30%" align="right">
                             <input type="file" id="file-input" accept=".rdvgame" onchange="loadSeed(event)"
                                 style="display: none;">
-                            <input type="button" value="Load Seed"
-                                onclick="document.getElementById('file-input').click();" />
+                            <span id='inputButton'><input type="button" value="Load Seed"
+                                    onclick="document.getElementById('file-input').click();" /></span>
                         </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table style="font-size: 24px; width: 100%;">
+                    <tr>
+                        <td align="center">Calculate 3 Point Checks? <input type="radio" name='1pt' value='yes'> Yes
+                            <input type="radio" name='1pt' value='no' checked> No
+                        </td>
+                        <td align="right"><input type="button" value="Show/Hide Background" onclick="background();" />
+                        </td>
+                        <td align="right"><input type="button" value="Show/Hide Point Values"
+                                onclick="pointToggle();" /></td>
                     </tr>
                 </table>
             </td>
@@ -156,7 +184,7 @@
                 ondragover="allowDrop(event)"></td>
         </tr>
     </table>
-    <table style="width: calc(100% - 130px);" id="main">
+    <table id="items" class="main pointShown">
         <tr>
             <td>
                 <table width="100%">
@@ -303,27 +331,24 @@
                                             ondragstart="drag(event)" points='three' id="screwattack" height="45px"
                                             title="Screw Attack">
                                     </td>
-                                    <!--Disable Until 1pt Update
                                     <td id='29' class="items">
                                         <img src="images/prime2/etank.png" draggable="true" ondragstart="drag(event)"
-                                            id="etank" height="45px" 
-                                            title="Energy Tank">
+                                            points='one' id="etank" height="45px" title="Energy Tank">
                                     </td>
                                     <td id="30" class="items">
                                         <img src="images/prime2/darkammo.png" draggable="true" ondragstart="drag(event)"
-                                            id="darkammo" height="45px" 
-                                            title="Dark Ammo Expansion">
+                                            points='one' id="darkammo" height="45px" title="Dark Ammo Expansion">
                                     </td>
                                     <td id="31" class="items">
                                         <img src="images/prime2/lightammo.png" draggable="true"
-                                            ondragstart="drag(event)" id="lightammo" height="45px"
-                                             title="Light Ammo Expansion">
+                                            ondragstart="drag(event)" points='one' id="lightammo" height="45px"
+                                            title="Light Ammo Expansion">
                                     </td>
                                     <td id="32" class="items">
                                         <img src="images/prime2/missileexp.png" draggable="true"
-                                            ondragstart="drag(event)" id="missileexp" height="45px"
-                                             title="Missile Expansion">
-                                    </td>-->
+                                            ondragstart="drag(event)" points='one' id="missileexp" height="45px"
+                                            title="Missile Expansion">
+                                    </td>
                                 </tr>
                             </table>
                         </td>

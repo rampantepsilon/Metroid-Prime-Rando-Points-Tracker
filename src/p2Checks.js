@@ -47,6 +47,14 @@ var threeChecks = [
     'Echo Visor'
 ];
 
+var optionalChecks = [
+    'Missile Expansion',
+    'Missile Launcher',
+    'Energy Tank',
+    'Light Ammo Expansion',
+    'Dark Ammo Expansion'
+]
+
 var startingItemsList = [
     'Violet Translator',
     'Amber Translator',
