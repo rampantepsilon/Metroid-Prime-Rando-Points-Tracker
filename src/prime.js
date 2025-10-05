@@ -12,6 +12,7 @@ var phendranaChecks = new Array();
 var tallonChecks = new Array();
 
 var fileType;
+var choice;
 
 var loadSeed = function (event) {
     let file = document.getElementById('file-input');
@@ -33,6 +34,9 @@ var loadSeed = function (event) {
 };
 
 function logFile(event) {
+    //Remove Input Button Add Reload Button
+    document.getElementById('inputButton').innerHTML = `<input type="button" value="Reload Seed" onclick="window.location.reload()" />`
+
     if (fileType == 'JSON') {
         let str = event.target.result;
         currentSeed = JSON.parse(str);
@@ -63,7 +67,6 @@ function calcPoints() { //JSON Files Only
     startingItems();
 
     //Get choice to calculate 1pt checks or not
-    var choice;
     var options = document.getElementsByName('1pt');
     for (i = 0; i < options.length; i++) {
         if (options[i].checked) {
@@ -268,13 +271,13 @@ function drag(ev) {
     var data = ev.target.id;
     if (ev.target.parentNode.id == 'chozo' || 'magmoor' || 'phazon' || 'phendrana' || 'tallon') {
         if (data.startsWith('suit') || data.startsWith('artifact')) {
-            points(ev.target.parentNode.id, 7);
+            points(ev.target.parentNode.id, 9);
         }
         if (data.startsWith('five')) {
-            points(ev.target.parentNode.id, 5);
+            points(ev.target.parentNode.id, 7);
         }
         if (data.startsWith('three')) {
-            points(ev.target.parentNode.id, 3);
+            points(ev.target.parentNode.id, 5);
         }
     }
 }
@@ -293,9 +296,16 @@ function drop(ev) {
     nodeCopy.id = dropVarId;
     nodeCopy.setAttribute('onmousedown', 'returnToPosition(event)')
     dropVarId += 1;
+    var ptValue = nodeCopy.getAttribute('checkType');
 
     if (id == 'chozo' || id == 'magmoor' || id == 'phazon' || id == 'phendrana' || id == 'tallon' || id == 'starting') {
-        ev.target.appendChild(nodeCopy);
+        if (ptValue.startsWith('one')) {
+            if (choice == 'yes') {
+                ev.target.appendChild(nodeCopy);
+            }
+        } else {
+            ev.target.appendChild(nodeCopy);
+        }
     } else if (parseInt(id)) {
         //ev.target.appendChild(nodeCopy);
     } else {
@@ -311,8 +321,10 @@ function drop(ev) {
         if (data.startsWith('three')) {
             points(ev.target.id, -3);
         }
-        if (data.startsWith('missiles') || data.startsWith('energy')) {
-            points(ev.target.id, -1);
+        if (choice == 'yes') {
+            if (data.startsWith('missiles') || data.startsWith('energy')) {
+                points(ev.target.id, -1);
+            }
         }
     }
     if (parent == 'chozo' || parent == 'magmoor' || parent == 'phazon' || parent == 'phendrana' || parent == 'tallon') {
@@ -325,8 +337,10 @@ function drop(ev) {
         if (data.startsWith('three')) {
             points(parent, -3);
         }
-        if (data.startsWith('missiles') || data.startsWith('energy')) {
-            points(parent, -1);
+        if (choice == 'yes') {
+            if (data.startsWith('missiles') || data.startsWith('energy')) {
+                points(parent, -1);
+            }
         }
     }
 }
@@ -376,12 +390,15 @@ function returnToPosition(ev) {
     var parent = ev.target.parentNode.id;
     if (parent == 'chozo' || parent == 'magmoor' || parent == 'phazon' || parent == 'phendrana' || parent == 'tallon') {
         if (data.startsWith('suit') || data.startsWith('artifact')) {
-            points(parent, 7);
+            points(parent, 9);
         }
         if (data.startsWith('five')) {
-            points(parent, 5);
+            points(parent, 7);
         }
         if (data.startsWith('three')) {
+            points(parent, 5);
+        }
+        if (data.startsWith('one')) {
             points(parent, 3);
         }
     }

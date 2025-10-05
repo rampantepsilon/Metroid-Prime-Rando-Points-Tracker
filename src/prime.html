@@ -112,8 +112,8 @@
                         <td width="30%" align="right">
                             <input type="file" id="file-input" accept=".json" onchange="loadSeed(event)"
                                 style="display: none;">
-                            <input type="button" value="Load Seed"
-                                onclick="document.getElementById('file-input').click();" />
+                            <span id='inputButton'><input type="button" value="Load Seed"
+                                    onclick="document.getElementById('file-input').click();" /></span>
                         </td>
                     </tr>
                 </table>
@@ -123,7 +123,7 @@
             <td colspan="3">
                 <table style="font-size: 24px; width: 100%;">
                     <tr>
-                        <td align="center">Calculate 1 Point Checks? <input type="radio" name='1pt' value='yes'> Yes
+                        <td align="center">Calculate 3 Point Checks? <input type="radio" name='1pt' value='yes'> Yes
                             <input type="radio" name='1pt' value='no' checked> No
                         </td>
                         <td align="right"><input type="button" value="Show/Hide Background" onclick="background();" />
