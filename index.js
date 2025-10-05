@@ -1,12 +1,15 @@
 const { app, BrowserWindow, Menu, dialog } = require('electron')
 
 const detailInfo = `
-- Updated Prime 2 layout with new images and matching background
-- Assigned point values to checks
-- Added Prime 2 to tracker
-- Both Prime & Echoes should work with multiworlds where only that game is there. (Currently, will not work for Prime/Echoes crossed multiworld. That will be coming soon.)`
+- Added Prime/Echoes Cross-Multiworld Placeholder
+- Added Optional Checks to Echoes
+- Added ability to hide the background
+- Added ability to hide the info for check amounts
+- Addressed issue with Prime where you could place 1pt check even without the tracker calculating for that
+- Updated landing page to show layout for all four options without creating too much issues
+- Added landing page information to display possible issues that may occur`
 
-const buildNumber = '252809.1'
+const buildNumber = '250410.1'
 
 const menuTemplate = [
     {
